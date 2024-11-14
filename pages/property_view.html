@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Overview</title>
+    <link href="../styles/style.css" rel="stylesheet">    
+    
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/slider.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
+
+</head>
+
+<body class="font_family_robo max-w-screen-2xl mx-auto bg-[var(--bg-color-7)]">
+    <header class="bg-white dark:bg-black sticky top-0 z-40">
+        <nav class="">
+            <div class="mx-4 lg:mx-20 flex justify-between items-center py-3 lg:py-4">
+                <a href="index.html">
+                    <div>
+                        <img src="../images/Logo_BR 1.png" alt="" class="w-44 lg:w-72">
+                    </div>
+                   </a>
+                <div class="flex justify-between items-center max-md:hidden">
+                    <div class=" px-4 py-2 cursor-pointer text-sm text-gray-500 hover:text-gray-800"><a href="index.html">Home</a></div>
+                     <div class="px-4 py-2  cursor-pointer text-sm text-gray-500 hover:text-gray-800"><a href="property_view.html">Property View</a></div>
+                     <div class="px-4 py-2  cursor-pointer text-sm text-gray-500 hover:text-gray-800"><a href="search_result.html">Search Result</a></div>
+                     <div class="px-4 py-2  cursor-pointer text-sm text-gray-500 hover:text-gray-800"><a href="search.html">Property Search</a></div>
+                 </div>
+                <div class="flex items-center gap-3 cursor-pointer">
+                    <div class="lg:hidden" onclick="search_box_toggle()">
+                        <img src="../images/svg/search2.svg " alt="">
+                    </div>
+
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" value="" class="sr-only peer" onclick="dark_theme_toggle()">
+                        <div class="group peer ring-0 bg-yellow-500   rounded-full outline-none duration-300 after:duration-300 w-16 h-8  shadow-md peer-checked:bg-[var(--bg-color-2)]  peer-focus:outline-none  after:content-[''] after:rounded-full after:absolute after:bg-gray-50 after:outline-none after:size-6 after:top-1 after:left-1 after:flex after:justify-center after:items-center peer-checked:after:translate-x-8 peer-hover:after:scale-95">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="absolute top-1/2 -translate-y-1/2 left-1  size-6 stroke-white" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="absolute  top-1/2 -translate-y-1/2 left-9 stroke-white size-5 stroke" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                        </div>
+                    </label>
+                    <div onclick="menu_toggle()" class="flex border-[1px] border-[var(--bg-color-8)] hover:border-[var(--bg-color-1)] rounded-full items-center p-2 lg:px-3 lg:py-2 gap-2 dark:bg-[var(--bg-color-5)] group/menu h-12">
+                        <div class="transition-all duration-200  group-hover/menu:-rotate-90">
+                            <svg class="group-hover/menu:hidden dark:stroke-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="3" y1="12" x2="21" y2="12"></line>
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <line x1="3" y1="18" x2="21" y2="18"></line>
+                            </svg>
+                            <svg class="hidden group-hover/menu:inline-block dark:stroke-white rotate-90"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                        </div>
+                        <div class="text-sm font-semibold max-lg:hidden dark:text-white">Menu</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="menu" class="bg-[var(--bg-color-1)] dark:bg-[var(--bg-color-2)] h-screen w-screen lg:w-2/5 fixed  -right-full top-0 z-50 transition-all duration-700 overflow-y-auto overflow-x-hidden animate__animated animate__fast animate__fadeOutRight">
+                <div class="px-4 lg:px-8 py-8">
+                    <div class="w-full flex justify-end">
+                        <button onclick="menu_toggle()" class="group cursor-pointer outline-none hover:rotate-90 duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" stroke-width="1" viewBox="0 0 24 24" class="rotate-[45deg] stroke-white fill-none group-hover:fill-white group-hover:stroke-[var(--bg-color-1)] dark:group-hover:stroke-[var(--bg-color-2)]">
+                                <path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke-width="1"></path>
+                                <path d="M8 12H16" stroke-width="1"></path>
+                                <path d="M12 16V8" stroke-width="1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="px-4 py-8 text-white text-sm">
+                        <ul>
+                            <li>
+                                <div onclick="dropdown_menu_toggle('dropdown1')" class="flex items-center w-full justify-between border-b border-white/50 py-4 cursor-pointer">
+                                    <span>Property In India</span>
+                                    <span>
+                                        <svg class="scale-125" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <ul id="dropdown1" class="pl-5 h-0 overflow-hidden transition-transform duration-500 text-[var(--bg-color-3)]">
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Property In Agra</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Property In Ahemedabad</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Property In Alibag</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Property In Banglore</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Property In Bhopal</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Property In Chennai</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Property In Delhi</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Property In Ghaziabad</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Property In Gurgaon</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                </ul>
+                            </li>
+                            <li>
+                                <div onclick="dropdown_menu_toggle('dropdown2')" class="flex items-center w-full justify-between border-b border-white/50 py-4 cursor-pointer">
+                                    <span>Explore Our Menu</span>
+                                    <span>
+                                        <svg class="scale-125" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <ul id="dropdown2" class="pl-5 h-0 overflow-hidden transition-transform duration-500 text-[var(--bg-color-3)]">
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Loan Requirement</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Post Property</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>How we works?</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Frequently Asked Questions</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>We Are Hiring</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                </ul>
+                            </li>
+                            <li>
+                                <div onclick="dropdown_menu_toggle('dropdown3')" class="flex items-center w-full justify-between border-b border-white/50 py-4 cursor-pointer">
+                                    <span>Categorized Collection</span>
+                                    <span>
+                                        <svg class="scale-125" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <ul id="dropdown3" class="pl-5 h-0 overflow-hidden transition-transform duration-500 text-[var(--bg-color-3)]">
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Property In Agra</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Property In Ahemedabad</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Property In Alibag</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                </ul>
+                            </li>
+                            <a href="property_view.html">
+                                <li>
+                                    <div class="flex items-center w-full justify-between border-b border-white/50 py-4 cursor-pointer">
+                                        <span>Property View</span>
+                                    </div>
+                                </li>
+                            </a>
+                            <a href="search.html">
+                                <li>
+                                    <div class="flex items-center w-full justify-between border-b border-white/50 py-4 cursor-pointer">
+                                        <span>Property Search</span>
+                                    </div>
+                                </li>
+                            </a>
+                            <a href="search_result.html">
+                                <li>
+                                    <div class="flex items-center w-full justify-between border-b border-white/50 py-4 cursor-pointer">
+                                        <span>Search Result</span>
+                                    </div>
+                                </li>
+                            </a>
+                            <a href="">
+                                <li>
+                                    <div class="flex items-center w-full justify-between border-b border-white/50 py-4 cursor-pointer">
+                                        <span>Compare Properties</span>
+                                    </div>
+                                </li>
+                            </a>
+                            <a href="">
+                                <li>
+                                    <div class="flex items-center w-full justify-between border-b border-white/50 py-4 cursor-pointer">
+                                        <span>Our Blogs</span>
+                                    </div>
+                                </li>
+                            </a>
+                            <a href="">
+                                <li>
+                                    <div class="flex items-center w-full justify-between border-b border-white/50 py-4 cursor-pointer">
+                                        <span>Know About Us</span>
+                                    </div>
+                                </li>
+                            </a>
+                            <a href="">
+                                <li>
+                                    <div class="flex items-center w-full justify-between border-b border-white/50 py-4 cursor-pointer">
+                                        <span>My Portfolio</span>
+                                    </div>
+                                </li>
+                            </a>
+                            <a href="">
+                                <li>
+                                    <div class="flex items-center w-full justify-between border-b border-white/50 py-4 cursor-pointer">
+                                        <span>Post Your Property</span>
+                                    </div>
+                                </li>
+                            </a>
+                            <a href="">
+                                <li>
+                                    <div class="flex items-center w-full justify-between border-b border-white/50 py-4 cursor-pointer">
+                                        <span>Career With Us</span>
+                                    </div>
+                                </li>
+                            </a>
+
+                            <li class="flex mt-40 gap-2 items-center">
+                                <div>Follow Us:</div>
+
+                                <a href="">
+                                    <div class="size-12 bg-white rounded-full relative">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="size-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 stroke-[var(--bg-color-1)]" viewBox="0 0 50 50" width="50" height="50" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M 5.9199219 6 L 20.582031 27.375 L 6.2304688 44 L 9.4101562 44 L 21.986328 29.421875 L 31.986328 44 L 44 44 L 28.681641 21.669922 L 42.199219 6 L 39.029297 6 L 27.275391 19.617188 L 17.933594 6 L 5.9199219 6 z M 9.7167969 8 L 16.880859 8 L 40.203125 42 L 33.039062 42 L 9.7167969 8 z" />
+                                        </svg>
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <div class="size-12 bg-white rounded-full relative">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="size-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 stroke-[var(--bg-color-1)]" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                        </svg>
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <div class="size-12 bg-white rounded-full relative">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="size-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 stroke-[var(--bg-color-1)]" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                            <rect x="2" y="9" width="4" height="12"></rect>
+                                            <circle cx="4" cy="4" r="2"></circle>
+                                        </svg>
+                                    </div>
+                                </a>
+
+                            </li>
+
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="bg-[var(--bg-color-7)] dark:bg-black ">
+        <section id="search_city" class=" bg-[var(--bg-color-2)] py-3 max-lg:flex justify-center max-lg:-translate-y-full transition-all duration-300">
+            <div class="lg:mx-20">
+                <div class="bg-white dark:bg-[var(--bg-color-5)] rounded-full w-fit p-1 items-center">
+                    <form action="" class="w-full">
+                        <div class="flex gap-6 w-full *:flex *:items-center overflow-hidden">
+                            <div class="bg-[var(--bg-color-2)] rounded-full px-2 flex items-center">
+                                <select name="city_name" id="" class="bg-[var(--bg-color-2)] outline-none text-white text-[12px] font-medium pr-6">
+                                    <option value="mumbai">Mumbai</option>
+                                    <option value="delhi">Delhi</option>
+                                    <option value="agra">Agra</option>
+                                </select>
+                            </div>
+                            <div class=" flex items-center">
+                                <input type="text" name="search" class="text-[12px] lg:w-[220px] font-semibold outline-none bg-transparent dark:text-black dark:placeholder:text-black" id="" placeholder="Search location, developers or project">
+                            </div>
+                            <div>
+                                <button type="submit" class="bg-[var(--bg-color-1)] rounded-full p-1 relative hover:bg-orange-600 transition-all duration-200 origin-left">
+                                    
+                                    <img src="../images/svg/search.svg" alt="" class="scale-75">
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <div class="px-4 lg:mx-20 max-lg:max-w-screen-sm mx-auto">
+
+            <section class="py-3">
+                <div class="text-xl font-bold my-4 dark:text-white">
+                    <div>Heritage Solitaire</div>
+                    <div class="text-sm text-[var(--bg-color-5)]">Bandra, Mumbai by Heritage Group</div>
+                </div>
+
+            </section>
+
+            <section>
+                <div class="flex gap-3 relative">
+                    <div class="w-full lg:flex-grow space-y-3">
+                        <div class="rounded-xl w-full h-[300px] lg:h-[500px]" data-aos="fade-up">
+                            <img src="../images/Rectangle 2.png" alt="" class="w-full h-full rounded-3xl">
+                        </div>
+                        <div class=" rounded-3xl px-5 py-8 shadow-lg bg-white dark:bg-[var(--bg-color-6)] lg:hidden" data-aos="fade-up">
+                            <div class="space-y-4">
+                                <div class=" font-semibold dark:text-white">
+                                    <span class="text-[var(--bg-color-1)]">Project highlights</span>
+                                    <span>comes with Heritage Solitaire</span>
+                                </div>
+                                <div class="flex flex-wrap *:w-1/2 gap-y-5">
+                                    <div class="flex space-x-1">
+                                        <div class="size-8 overflow-hidden">
+                                            <svg class="stroke-black dark:stroke-white size-5" stroke-width="2" x="0px" y="0px" viewBox="0 0 256 256" enable-background="new 0 0 256 256">
+                                                <g>
+                                                    <path fill="" d="M77.6,44.2c-7.2,0.6-14.2,1.8-21.2,3.6c-25.2,6.3-42.3,19.8-45.1,35.4c-0.2,1.5-0.7,3.5-0.9,4.4c-0.3,1-0.4,17.5-0.3,42.6c0.2,45.6,0,43,3.5,49.9c7.2,14.2,25.1,25,49.2,29.6c12.4,2.4,10.5,2.3,87.1,2.2c39.3-0.1,76.7-0.3,83.1-0.5l11.6-0.3l0.9-1.2c0.8-1.1,0.9-2.9,0.2-44.2l-0.6-43.1l-1.2-1.2l-1.2-1.2l-10.9,0.6c-9.4,0.5-63.4,2.9-64.7,2.9c-0.3,0-0.5-6.8-0.5-19.4c0-21.5-0.1-22.3-3.3-28.7c-7.8-15.5-29.5-27.1-57.2-30.7C98.9,44,84.3,43.7,77.6,44.2z M106.1,52.5c19.8,3,37.2,10.6,45.8,20.2c11.5,12.8,8.3,27.3-8.3,38.4c-10.2,6.8-24.7,11.6-41,13.6c-6.1,0.8-22.4,0.8-28.3,0c-36.9-4.7-61.1-23-55.3-41.8C22.1,72.4,34.5,62.7,52,56.9c5.8-1.9,16.9-4.3,23.4-5C81.5,51.2,100.1,51.6,106.1,52.5z M29.5,117.7c13,8.4,27.2,12.8,48.5,15c7,0.7,10.4,0.7,32.2,0.2c33.4-0.8,88.1-2.8,116.8-4.3c4.7-0.3,9-0.5,9.6-0.5c1,0,1,0,1.3,20.8c0.1,11.5,0.4,28.6,0.6,38.1l0.3,17.3h-8.4h-8.4V195c0-9.9-0.2-11.2-2.2-12.1c-1.8-0.8-2.5-0.7-4,0.9l-1.4,1.4v9.6v9.6h-10h-10v-9.6v-9.6l-1.4-1.4c-1.5-1.5-2.2-1.7-4-0.9c-2,0.9-2.2,2.2-2.2,12.1v9.3h-10h-10l-0.1-16.7l-0.1-16.7l-1.4-1.2c-1.1-0.9-1.7-1.1-2.9-0.9c-3,0.6-2.9,0.1-3.1,18.8l-0.2,17h-10h-10l-0.2-10.1c-0.3-11.3-0.4-11.8-3.6-11.8c-3.2,0-3.3,0.4-3.6,11.8l-0.2,10.1l-10.1,0.1l-10.1,0.1v-10c0-8.8-0.1-10.1-0.9-11c-1.2-1.5-3.4-1.8-5-0.5l-1.3,1l-0.1,10.1l-0.1,10.1l-10.1,0.1l-10.1,0.1v-16.9c0-15.3-0.1-17-0.8-17.9c-1.4-1.6-3.5-1.8-5.2-0.4l-1.4,1.2l-0.1,16.7l-0.1,16.7l-2-0.2c-2.6-0.3-14.5-2.4-16.3-2.9l-1.4-0.4l-0.2-8l-0.2-8l-1.3-1.1c-1.5-1.3-2.1-1.4-3.8-0.6c-1.9,0.9-2.2,2.4-2.2,9.1v6.2l-1.1-0.3c-2.6-0.8-11.1-5.1-14.4-7.4c-4.8-3.3-10.3-9.2-12.1-13c-2.9-5.9-2.9-5.3-2.9-39.1v-31l4,3.9C23.7,113.4,27.2,116.3,29.5,117.7z M159,124c-0.1,0-5.6,0.2-12.3,0.4l-12.1,0.3l4.3-2.1c5.9-2.9,12.4-7.2,16.5-11.2l3.5-3.3l0.1,7.9C159,120.4,159,124,159,124z" />
+                                                    <path fill="" d="M82.8,67.1c-10.1,1.4-18.5,5-23.2,10.1c-2.9,3.2-4.1,5.8-4.3,9.7c-0.3,4.7,1.3,8.2,5.3,12c15.8,14.7,53.4,11.9,62.5-4.7c1-1.9,1.4-3.3,1.6-6c0.2-3.2,0.1-3.8-1.3-6.5c-3.2-6.6-11.4-11.8-22.2-13.9C96.9,66.9,86.8,66.6,82.8,67.1z M102,75.6c7.7,2,13.3,5.8,14.9,9.8c0.8,2,0.8,2.3,0,4.3c-1.5,4-6.3,7.2-14,9.6c-3.9,1.2-4.8,1.3-13,1.3s-9.1-0.1-13.1-1.3c-10-3-15.7-8.5-14.1-13.4c1.6-4.8,8-8.8,17.2-10.8C85.5,73.9,96.6,74.1,102,75.6z" />
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <div class="text-sm lg:text-[12px] font-semibold text-[var(--bg-color-5)]">Total Area</div>
+                                            <div class="text-lg lg:text-[15px] font-semibold text-[var(--bg-color-6)] dark:text-white">2400-4400</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex space-x-1">
+                                        <div class="size-8 overflow-hidden">
+                                            <img src="../images/svg/scale.png" alt="" class="size-8">
+                                        </div>
+                                        <div>
+                                            <div class="text-sm lg:text-[12px] font-semibold text-[var(--bg-color-5)]">Bedrooms</div>
+                                            <div class="text-lg lg:text-[15px] font-semibold text-[var(--bg-color-6)] dark:text-white">1,2,3,4 BHK</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex space-x-1">
+                                        <div class="size-8 overflow-hidden">
+                                            <img src="../images/svg/scale.png" alt="" class="size-8">
+                                        </div>
+                                        <div>
+                                            <div class="text-sm lg:text-[12px] font-semibold text-[var(--bg-color-5)]">Project Status</div>
+                                            <div class="text-lg lg:text-[15px] font-semibold text-[var(--bg-color-6)] dark:text-white">New Launch</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex space-x-1">
+                                        <div class="size-8 overflow-hidden">
+                                            <img src="../images/svg/scale.png" alt="" class="size-8">
+                                        </div>
+                                        <div>
+                                            <div class="text-sm lg:text-[12px] font-semibold text-[var(--bg-color-5)]">Possession</div>
+                                            <div class="text-lg lg:text-[15px] font-semibold text-[var(--bg-color-6)] dark:text-white">1-2 Year</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex space-x-1">
+                                        <div class="size-8 overflow-hidden">
+                                            <img src="../images/svg/scale.png" alt="" class="size-8">
+                                        </div>
+                                        <div>
+                                            <div class="text-sm lg:text-[12px] font-semibold text-[var(--bg-color-5)]">Price</div>
+                                            <div class="text-lg lg:text-[15px] font-semibold text-[var(--bg-color-6)] dark:text-white">On request</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="overflow-x-auto" data-aos="fade-up">
+                            <div class="flex w-full gap-10 py-4">
+                                <a href="#overview" onclick="page_section_view('overview')">
+                                    <div class="w-fit flex flex-col items-center">
+                                        <div id="overview_title" class="text-[var(--bg-color-1)] font-semibold text-sm w-fit">Overview</div>
+                                        <div id="overview_title_underline" class="w-2/5 h-1 bg-[var(--bg-color-1)] rounded-full"></div>
+                                    </div>
+                                </a>
+                                <a href="#amenities" onclick="page_section_view('amenities')">
+                                    <div class="w-fit flex flex-col items-center">
+                                        <div id="amenities_title" class="text-[var(--bg-color-5)]  font-semibold text-sm w-fit">Amenities</div>
+                                        <div id="amenities_title_underline" class="w-2/5 h-1 bg-[var(--bg-color-1)] rounded-full hidden"></div>
+                                    </div>
+                                </a>
+                                <a href="#floorplan" onclick="page_section_view('floorplan')">
+                                    <div class="w-fit flex flex-col items-center">
+                                        <div id="floorplan_title" class="text-[var(--bg-color-5)]  font-semibold text-sm w-fit">Floor Plan</div>
+                                        <div id="floorplan_title_underline" class="w-2/5 h-1 bg-[var(--bg-color-1)] rounded-full hidden"></div>
+                                    </div>
+                                </a>
+                                <a href="#aboutbuilder" onclick="page_section_view('aboutbuilder')">
+                                    <div class="w-fit flex flex-col items-center">
+                                        <div id="aboutbuilder_title" class="text-[var(--bg-color-5)]  font-semibold text-sm w-fit">About Builder</div>
+                                        <div id="aboutbuilder_title_underline" class="w-2/5 h-1 bg-[var(--bg-color-1)] rounded-full hidden"></div>
+                                    </div>
+                                </a>
+                                <a href="#location" onclick="page_section_view('location')">
+                                    <div class="w-fit flex flex-col items-center">
+                                        <div id="location_title" class="text-[var(--bg-color-5)]  font-semibold text-sm w-fit">Location</div>
+                                        <div id="location_title_underline" class="w-2/5 h-1 bg-[var(--bg-color-1)] rounded-full hidden"></div>
+                                    </div>
+                                </a>
+                                <a href="#similarproperties" onclick="page_section_view('similarproperties')">
+                                    <div class="w-fit flex flex-col items-center">
+                                        <div id="similarproperties_title" class="text-[var(--bg-color-5)]  font-semibold text-sm w-fit">Similar Properties</div>
+                                        <div id="similarproperties_title_underline" class="w-2/5 h-1 bg-[var(--bg-color-1)] rounded-full hidden"></div>
+                                    </div>
+                                </a>
+                                <a href="#contact" onclick="page_section_view('contact')">
+                                    <div class="w-fit flex flex-col items-center">
+                                        <div id="contact_title" class="text-[var(--bg-color-5)]  font-semibold text-sm w-fit">Contact Us</div>
+                                        <div id="contact_title_underline" class="w-2/5 h-1 bg-[var(--bg-color-1)] rounded-full hidden"></div>
+                                    </div>
+                                </a>
+
+                            </div>
+                        </div>
+
+                        <div id="overview" class="bg-white rounded-3xl w-full p-7 dark:bg-[var(--bg-color-6)] shadow-lg" data-aos="fade-up">
+                            <div class="font-bold border-b-2 pb-3 text-lg dark:text-white">Overview</div>
+                            <div class="text-[var(--bg-color-5)] text-sm font-semibold py-4 pb-2">
+                                <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit laudantium voluptatum fugit eius possimus cum, debitis impedit? Sint temporibus tempore earum iusto. In inventore minus placeat. Repellendus, ipsum. In optio deleniti voluptas ab repellat? Maxime!</span>
+                                <span class="text-[var(--bg-color-1)] lg:hidden">read more</span>
+                            </div>
+                        </div>
+                        <div id="amenities" class="bg-white rounded-3xl w-full p-7 dark:bg-[var(--bg-color-6)] shadow-lg" data-aos="fade-up">
+                            <div class="font-bold border-b-2 pb-3 text-lg dark:text-white">Amenities</div>
+                            <div class="text-[var(--bg-color-5)] text-sm font-semibold py-4 pb-2">
+                                <div class="flex flex-wrap *:w-1/2 lg:*:w-1/4 gap-y-4 lg:gap-y-2">
+                                    <div class="flex items-center gap-2 lg:gap-4">
+                                        <div class="size-7 lg:size-10 rounded-full bg-[var(--bg-color-8)] dark:bg-[var(--bg-color-9)] overflow-hidden"></div>
+                                        <div class="text-black max-lg:text-[12px] dark:text-[var(--bg-color-5)]">Gymnashium</div>
+                                    </div>
+                                    <div class="flex items-center gap-2 lg:gap-4">
+                                        <div class="size-7 lg:size-10 rounded-full bg-[var(--bg-color-8)] dark:bg-[var(--bg-color-9)] overflow-hidden"></div>
+                                        <div class="text-black max-lg:text-[12px] dark:text-[var(--bg-color-5)]">Play Area</div>
+                                    </div>
+                                    <div class="flex items-center gap-2 lg:gap-4">
+                                        <div class="size-7 lg:size-10 rounded-full bg-[var(--bg-color-8)] dark:bg-[var(--bg-color-9)] overflow-hidden"></div>
+                                        <div class="text-black max-lg:text-[12px] dark:text-[var(--bg-color-5)]">Intercom</div>
+                                    </div>
+                                    <div class="flex items-center gap-2 lg:gap-4">
+                                        <div class="size-7 lg:size-10 rounded-full bg-[var(--bg-color-8)] dark:bg-[var(--bg-color-9)] overflow-hidden"></div>
+                                        <div class="text-black max-lg:text-[12px] dark:text-[var(--bg-color-5)]">Parking</div>
+                                    </div>
+                                    <div class="flex items-center gap-2 lg:gap-4">
+                                        <div class="size-7 lg:size-10 rounded-full bg-[var(--bg-color-8)] dark:bg-[var(--bg-color-9)] overflow-hidden"></div>
+                                        <div class="text-black max-lg:text-[12px] dark:text-[var(--bg-color-5)]">Cafeteria</div>
+                                    </div>
+                                    <div class="flex items-center gap-2 lg:gap-4">
+                                        <div class="size-7 lg:size-10 rounded-full bg-[var(--bg-color-8)] dark:bg-[var(--bg-color-9)] overflow-hidden"></div>
+                                        <div class="text-black max-lg:text-[12px] dark:text-[var(--bg-color-5)]">Club House</div>
+                                    </div>
+                                    <div class="flex items-center gap-2 lg:gap-4">
+                                        <div class="size-7 lg:size-10 rounded-full bg-[var(--bg-color-8)] dark:bg-[var(--bg-color-9)] overflow-hidden"></div>
+                                        <div class="text-black max-lg:text-[12px] dark:text-[var(--bg-color-5)]">Garden</div>
+                                    </div>
+                                    <div class="flex items-center gap-2 lg:gap-4">
+                                        <div class="size-7 lg:size-10 rounded-full bg-[var(--bg-color-8)] dark:bg-[var(--bg-color-9)] overflow-hidden"></div>
+                                        <div class="text-black max-lg:text-[12px] dark:text-[var(--bg-color-5)]">Restaurant</div>
+                                    </div>
+                                    <div class="flex items-center gap-2 lg:gap-4">
+                                        <div class="size-7 lg:size-10 rounded-full bg-[var(--bg-color-8)] dark:bg-[var(--bg-color-9)] overflow-hidden"></div>
+                                        <div class="text-black max-lg:text-[12px] dark:text-[var(--bg-color-5)]">Power Backup</div>
+                                    </div>
+                                    <div class="flex items-center gap-2 lg:gap-4">
+                                        <div class="size-7 lg:size-10 rounded-full bg-[var(--bg-color-8)] dark:bg-[var(--bg-color-9)] overflow-hidden"></div>
+                                        <div class="text-black max-lg:text-[12px] dark:text-[var(--bg-color-5)]">Lift</div>
+                                    </div>
+                                    <div class="flex items-center gap-2 lg:gap-4">
+                                        <div class="size-7 lg:size-10 rounded-full bg-[var(--bg-color-8)] dark:bg-[var(--bg-color-9)] overflow-hidden"></div>
+                                        <div class="text-black max-lg:text-[12px] dark:text-[var(--bg-color-5)]">Security</div>
+                                    </div>
+                                    <div class="flex items-center gap-2 lg:gap-4">
+                                        <div class="size-7 lg:size-10 rounded-full bg-[var(--bg-color-8)] dark:bg-[var(--bg-color-9)] overflow-hidden"></div>
+                                        <div class="text-black max-lg:text-[12px] dark:text-[var(--bg-color-5)]">Fire Safety</div>
+                                    </div>
+                                    <div class="flex items-center gap-2 lg:gap-4">
+                                        <div class="size-7 lg:size-10 rounded-full bg-[var(--bg-color-8)] dark:bg-[var(--bg-color-9)] overflow-hidden"></div>
+                                        <div class="text-black max-lg:text-[12px] dark:text-[var(--bg-color-5)]">Swimming Pool</div>
+                                    </div>
+                                    <div class="flex items-center gap-2 lg:gap-4">
+                                        <div class="size-7 lg:size-10 rounded-full bg-[var(--bg-color-8)] dark:bg-[var(--bg-color-9)] overflow-hidden"></div>
+                                        <div class="text-black max-lg:text-[12px] dark:text-[var(--bg-color-5)]">Garden</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="floorplan" class="bg-white rounded-3xl w-full lg:p-7 dark:bg-[var(--bg-color-6)] shadow-lg overflow-hidden " data-aos="fade-up">
+                            <div class="font-bold border-b-2 pb-3 max-lg:mx-7 max-lg:pt-7 text-lg dark:text-white">Floor Plan & Configuration</div>
+                            <div class="text-[var(--bg-color-5)] py-4 h-full">
+                                <div class="flex h-full gap-5 flex-col lg:flex-row w-full ">
+                                    <div class="w-full h-[250px] lg:w-2/5 lg:h-full overflow-hidden lg:rounded-lg bg-[var(--bg-color-10)] dark:bg-black">
+                                        <img src="../images/map.jpg" alt="" class="w-full h-full">
+                                    </div>
+                                    <div class="w-full lg:w-1/2 max-lg:px-5 ">
+                                        <div class="space-y-5">
+                                            <div>
+                                                <div class="text-[12px] text-[var(--bg-color-2)]">Area On Request</div>
+                                                <div class="text-2xl text-black font-bold dark:text-white">3 BHK</div>
+                                                <div class="text-[var(--bg-color-1)] text-[12px] font-semibold">Request</div>
+                                            </div>
+                                            <div class="w-full lg:w-fit">
+                                                <form action="">
+                                                    <div class="flex flex-col lg:flex-row justify-between lg:items-center lg:gap-x-8 max-lg:gap-y-2 my-2">
+                                                        <div class="text-sm font-bold">Total Cost</div>
+                                                        <div>
+                                                            <input class="outline-none bg-[var(--bg-color-10)] dark:bg-transparent dark:border-2 text-start lg:text-end rounded-md h-8 px-3 font-medium text-black dark:text-white placeholder:text-gray-600 w-full lg:w-[200px]" type="text" name="" id="" placeholder="On Request">
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex flex-col lg:flex-row justify-between lg:items-center lg:gap-x-8 max-lg:gap-y-2 my-2">
+                                                        <div class="text-sm font-bold">Down Payment</div>
+                                                        <div>
+                                                            <input class="outline-none bg-[var(--bg-color-10)] dark:bg-transparent dark:border-2 text-start lg:text-end rounded-md h-8 px-3 font-medium text-black dark:text-white placeholder:text-gray-600 w-full lg:w-[200px]" type="text" name="" id="" placeholder="%">
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex flex-col lg:flex-row justify-between lg:items-center lg:gap-x-8 max-lg:gap-y-2 my-2">
+                                                        <div class="text-sm font-bold">Interest</div>
+                                                        <div>
+                                                            <input class="outline-none bg-[var(--bg-color-10)] dark:bg-transparent dark:border-2 text-start lg:text-end rounded-md h-8 px-3 font-medium text-black dark:text-white placeholder:text-gray-600 w-full lg:w-[200px]" type="text" name="" id="" placeholder="%">
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex flex-col lg:flex-row justify-between lg:items-center lg:gap-x-8 max-lg:gap-y-2 my-2">
+                                                        <div class="text-sm font-bold">EMI for Loan Amount</div>
+                                                        <div>
+                                                            <input class="outline-none bg-[var(--bg-color-10)] dark:bg-transparent dark:border-2 text-start lg:text-end rounded-md h-8 px-3 font-medium text-black dark:text-white placeholder:text-gray-600 w-full lg:w-[200px]" type="text" name="" id="" placeholder="Years">
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="aboutbuilder" class="bg-white rounded-3xl w-full p-7 dark:bg-[var(--bg-color-6)] shadow-lg" data-aos="fade-up">
+                            <div class="font-bold border-b-2 pb-3 text-lg dark:text-white">About builder</div>
+                            <div class="text-[var(--bg-color-5)] text-sm font-semibold py-4 pb-2">
+                                <div>
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam deserunt, ea ipsa est temporibus dolorem! Ducimus at ab corporis debitis exercitationem et nobis itaque pariatur modi hic, blanditiis, ratione numquam iste, perspiciatis aspernatur in distinctio libero eveniet quam adipisci saepe quidem. Quaerat minus quibusdam ut nulla excepturi est soluta eos harum culpa dolorum ex qui ab fugiat, praesentium facilis voluptate autem, quia repellendus laborum. Quia reiciendis voluptate doloremque ipsum velit, similique dolor! Quibusdam, impedit ratione. Ex odio commodi rerum! Sunt cumque ex porro eos asperiores, obcaecati voluptates cupiditate libero minus autem? Deserunt sit consequuntur beatae eveniet veniam nam porro odio.
+                                </div>
+                                <div class="pt-5">
+                                    <div>
+                                        <a href="">
+                                            <button class="border-[var(--bg-color-1)] border text-[var(--bg-color-1)] px-5 py-2 rounded-full">Know more</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="location" class="bg-white rounded-3xl w-full lg:p-7 dark:bg-[var(--bg-color-6)] shadow-lg lg:h-[400px]" data-aos="fade-up">
+                            <div class="font-bold border-b-2 pb-3 max-lg:mx-7 max-lg:pt-7 text-lg dark:text-white">Location</div>
+                            <div class="text-[var(--bg-color-5)] text-sm font-semibold py-4 pb-2 h-full">
+                                <div class="flex h-full pb-10 gap-5 flex-col lg:flex-row">
+                                    <div class="w-full h-[250px] lg:w-2/3 lg:h-full lg:rounded-3xl overflow-hidden bg-[var(--bg-color-3)] dark:bg-black">
+                                        <img src="../images/map.jpg" alt="" class="w-full h-full lg:rounded-3xl">
+                                    </div>
+                                    <div class="w-full lg:w-1/2 ">
+                                        <div class="flex flex-wrap gap-3 lg:gap-5 max-lg:px-4">
+                                            <div class="bg-[var(--bg-color-3)] text-[var(--bg-color-2)] w-fit px-6 py-3 rounded-full">Bus Station</div>
+                                            <div class="bg-[var(--bg-color-3)] text-[var(--bg-color-2)] w-fit px-6 py-3 rounded-full">Air Port</div>
+                                            <div class="bg-[var(--bg-color-3)] text-[var(--bg-color-2)] w-fit px-6 py-3 rounded-full">Train Station</div>
+                                            <div class="bg-[var(--bg-color-3)] text-[var(--bg-color-2)] w-fit px-6 py-3 rounded-full">Bank/ATM's</div>
+                                            <div class="bg-[var(--bg-color-3)] text-[var(--bg-color-2)] w-fit px-6 py-3 rounded-full">Hospital</div>
+                                            <div class="bg-[var(--bg-color-3)] text-[var(--bg-color-2)] w-fit px-6 py-3 rounded-full">Movie Theatre</div>
+                                            <div class="bg-[var(--bg-color-3)] text-[var(--bg-color-2)] w-fit px-6 py-3 rounded-full">Restaurent</div>
+                                            <div class="bg-[var(--bg-color-3)] text-[var(--bg-color-2)] w-fit px-6 py-3 rounded-full">School</div>
+                                            <div class="bg-[var(--bg-color-3)] text-[var(--bg-color-2)] w-fit px-6 py-3 rounded-full">Park</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="similarproperties" class="bg-white rounded-3xl w-full p-7 dark:bg-[var(--bg-color-6)] shadow-lg" data-aos="fade-up">
+                            <div class="font-bold border-b-2 pb-3 text-lg dark:text-white">Similar Properties</div>
+                            <div class="text-[var(--bg-color-5)] text-sm font-semibold">
+                                <div class="wrapper mt-4 row relative h-full ">
+                                    <div id="left" class="arrow absolute top-20 -left-4 rounded-full bg-white/70 size-11 cursor-pointer hover:bg-white transition-all duration-300 max-lg:hidden">
+                                        <svg class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-6 rotate-90" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="gray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </div>
+                                    <ul class="carousel">
+                                        <li class="cardbg dark:bg-[var(--bg-color-6)]">
+                                            <div class="w-100 dark:bg-[var(--bg-color-6)]">
+                                                <div class=" border-0 ">
+                                                    <img class="card-img-top" style="height: auto;" src="../images/shiv.png" alt="Card image cap" />
+                                                    <div class="card-body" style="padding: 10px 0px">
+                                                        <h5 class="card-title f_16 f_600 text-black dark:text-white">Shiv Vaibhav</h5>
+                                                        <p class="card-text f_15 f_500 font_color_1">
+                                                            Kurla, Mumbai</br> 1 BHK, 2BHK
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </li>
+                                        <li class="cardbg dark:bg-[var(--bg-color-6)]">
+                                            <div class="w-100 dark:bg-[var(--bg-color-6)]">
+
+                                                <div class=" border-0">
+
+                                                    <img class="card-img-top" style="height: auto;" src="../images/avenue.png" alt="Card image cap" />
+                                                    <div class="card-body w-100" style="padding: 10px 0px">
+                                                        <h5 class="card-title f_16 f_600 text-black dark:text-white">Avenue 15</h5>
+                                                        <p class="card-text f_15 f_500 font_color_1">
+                                                            Sewari, Mumbai</br> 1 BHK, 2BHK
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </li>
+                                        <li class="cardbg dark:bg-[var(--bg-color-6)]">
+                                            <div class="w-100 dark:bg-[var(--bg-color-6)]">
+
+                                                <div class=" border-0">
+
+                                                    <img class="card-img-top" style="height: auto;" src="../images/labdhi.png" alt="Card image cap" />
+                                                    <div class="card-body w-100" style="padding: 10px 0px">
+                                                        <h5 class="card-title f_16 f_600 text-black dark:text-white">Labdhi Gardens</h5>
+                                                        <p class="card-text f_15 f_500 font_color_1">
+                                                            Neral, Mumbai</br> 1 BHK, 2BHK
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </li>
+
+                                    </ul>
+                                    <div id="right" class="arrow absolute top-20 -right-4 rounded-full bg-white/70 size-11 cursor-pointer hover:bg-white transition-all duration-300 max-lg:hidden">
+                                        <svg class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-6 -rotate-90" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="gray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="contact" class="bg-white rounded-3xl w-full dark:bg-[var(--bg-color-6)] shadow-lg" data-aos="fade-up">
+                            <div class="font-bold pb-3 text-lg dark:text-white p-5 lg:p-7">Contact Us</div>
+                            <div class="text-[var(--bg-color-5)] max-lg:text-[12px] text-[15px] font-semibold pb-2 w-full">
+                                <table class="w-full">
+                                    <thead>
+                                        <tr class="bg-[var(--bg-color-2)] text-white px-7">
+                                            <td class="px-5 lg:px-7 py-3">Builder Details</td>
+                                            <td></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="px-5 lg:px-7 py-3">Name</td>
+                                            <td class="dark:text-white">Heritage Solitaire</td>
+                                        </tr>
+                                        <tr class="bg-[var(--bg-color-8)] dark:bg-black">
+                                            <td class="px-5 lg:px-7 py-3">Contact Number</td>
+                                            <td class="dark:text-white">+91 2345618</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-5 lg:px-7 py-3">Our Commitment</td>
+                                            <td class="dark:text-white">Free Pick And drop, Expert Advice</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="w-1/4 h-fit  flex flex-col gap-4 max-lg:hidden bg-[var(--bg-color-7)] dark:bg-[var(--bg-color-4)]">
+                        <div class=" rounded-3xl px-5 py-8 shadow-lg bg-white dark:bg-[var(--bg-color-6)]" data-aos="fade-up">
+                            <div class="space-y-4">
+                                <div class=" font-semibold dark:text-white">
+                                    <span class="text-[var(--bg-color-1)]">Project highlights</span>
+                                    <span>comes with Heritage Solitaire</span>
+                                </div>
+                                <div class="space-y-2 *:space-x-3">
+                                    <div class="flex space-x-1">
+                                        <div class="size-8 overflow-hidden">
+                                            <svg class="stroke-black dark:stroke-white size-5" stroke-width="2" x="0px" y="0px" viewBox="0 0 256 256" enable-background="new 0 0 256 256">
+                                                <g>
+                                                    <path fill="" d="M77.6,44.2c-7.2,0.6-14.2,1.8-21.2,3.6c-25.2,6.3-42.3,19.8-45.1,35.4c-0.2,1.5-0.7,3.5-0.9,4.4c-0.3,1-0.4,17.5-0.3,42.6c0.2,45.6,0,43,3.5,49.9c7.2,14.2,25.1,25,49.2,29.6c12.4,2.4,10.5,2.3,87.1,2.2c39.3-0.1,76.7-0.3,83.1-0.5l11.6-0.3l0.9-1.2c0.8-1.1,0.9-2.9,0.2-44.2l-0.6-43.1l-1.2-1.2l-1.2-1.2l-10.9,0.6c-9.4,0.5-63.4,2.9-64.7,2.9c-0.3,0-0.5-6.8-0.5-19.4c0-21.5-0.1-22.3-3.3-28.7c-7.8-15.5-29.5-27.1-57.2-30.7C98.9,44,84.3,43.7,77.6,44.2z M106.1,52.5c19.8,3,37.2,10.6,45.8,20.2c11.5,12.8,8.3,27.3-8.3,38.4c-10.2,6.8-24.7,11.6-41,13.6c-6.1,0.8-22.4,0.8-28.3,0c-36.9-4.7-61.1-23-55.3-41.8C22.1,72.4,34.5,62.7,52,56.9c5.8-1.9,16.9-4.3,23.4-5C81.5,51.2,100.1,51.6,106.1,52.5z M29.5,117.7c13,8.4,27.2,12.8,48.5,15c7,0.7,10.4,0.7,32.2,0.2c33.4-0.8,88.1-2.8,116.8-4.3c4.7-0.3,9-0.5,9.6-0.5c1,0,1,0,1.3,20.8c0.1,11.5,0.4,28.6,0.6,38.1l0.3,17.3h-8.4h-8.4V195c0-9.9-0.2-11.2-2.2-12.1c-1.8-0.8-2.5-0.7-4,0.9l-1.4,1.4v9.6v9.6h-10h-10v-9.6v-9.6l-1.4-1.4c-1.5-1.5-2.2-1.7-4-0.9c-2,0.9-2.2,2.2-2.2,12.1v9.3h-10h-10l-0.1-16.7l-0.1-16.7l-1.4-1.2c-1.1-0.9-1.7-1.1-2.9-0.9c-3,0.6-2.9,0.1-3.1,18.8l-0.2,17h-10h-10l-0.2-10.1c-0.3-11.3-0.4-11.8-3.6-11.8c-3.2,0-3.3,0.4-3.6,11.8l-0.2,10.1l-10.1,0.1l-10.1,0.1v-10c0-8.8-0.1-10.1-0.9-11c-1.2-1.5-3.4-1.8-5-0.5l-1.3,1l-0.1,10.1l-0.1,10.1l-10.1,0.1l-10.1,0.1v-16.9c0-15.3-0.1-17-0.8-17.9c-1.4-1.6-3.5-1.8-5.2-0.4l-1.4,1.2l-0.1,16.7l-0.1,16.7l-2-0.2c-2.6-0.3-14.5-2.4-16.3-2.9l-1.4-0.4l-0.2-8l-0.2-8l-1.3-1.1c-1.5-1.3-2.1-1.4-3.8-0.6c-1.9,0.9-2.2,2.4-2.2,9.1v6.2l-1.1-0.3c-2.6-0.8-11.1-5.1-14.4-7.4c-4.8-3.3-10.3-9.2-12.1-13c-2.9-5.9-2.9-5.3-2.9-39.1v-31l4,3.9C23.7,113.4,27.2,116.3,29.5,117.7z M159,124c-0.1,0-5.6,0.2-12.3,0.4l-12.1,0.3l4.3-2.1c5.9-2.9,12.4-7.2,16.5-11.2l3.5-3.3l0.1,7.9C159,120.4,159,124,159,124z" />
+                                                    <path fill="" d="M82.8,67.1c-10.1,1.4-18.5,5-23.2,10.1c-2.9,3.2-4.1,5.8-4.3,9.7c-0.3,4.7,1.3,8.2,5.3,12c15.8,14.7,53.4,11.9,62.5-4.7c1-1.9,1.4-3.3,1.6-6c0.2-3.2,0.1-3.8-1.3-6.5c-3.2-6.6-11.4-11.8-22.2-13.9C96.9,66.9,86.8,66.6,82.8,67.1z M102,75.6c7.7,2,13.3,5.8,14.9,9.8c0.8,2,0.8,2.3,0,4.3c-1.5,4-6.3,7.2-14,9.6c-3.9,1.2-4.8,1.3-13,1.3s-9.1-0.1-13.1-1.3c-10-3-15.7-8.5-14.1-13.4c1.6-4.8,8-8.8,17.2-10.8C85.5,73.9,96.6,74.1,102,75.6z" />
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] font-semibold text-[var(--bg-color-5)]">Total Area</div>
+                                            <div class="text-[15px] font-semibold text-[var(--bg-color-6)] dark:text-white">2400-4400</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex space-x-1">
+                                        <div class="size-8 overflow-hidden">
+                                            <img src="../images/svg/scale.png" alt="" class="size-8">
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] font-semibold text-[var(--bg-color-5)]">Bedrooms</div>
+                                            <div class="text-[15px] font-semibold text-[var(--bg-color-6)] dark:text-white">1,2,3,4 BHK</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex space-x-1">
+                                        <div class="size-8 overflow-hidden">
+                                            <img src="../images/svg/scale.png" alt="" class="size-8">
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] font-semibold text-[var(--bg-color-5)]">Project Status</div>
+                                            <div class="text-[15px] font-semibold text-[var(--bg-color-6)] dark:text-white">New Launch</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex space-x-1">
+                                        <div class="size-8 overflow-hidden">
+                                            <img src="../images/svg/scale.png" alt="" class="size-8">
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] font-semibold text-[var(--bg-color-5)]">Possession</div>
+                                            <div class="text-[15px] font-semibold text-[var(--bg-color-6)] dark:text-white">1-2 Year</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex space-x-1">
+                                        <div class="size-8 overflow-hidden">
+                                            <img src="../images/svg/scale.png" alt="" class="size-8">
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] font-semibold text-[var(--bg-color-5)]">Price</div>
+                                            <div class="text-[15px] font-semibold text-[var(--bg-color-6)] dark:text-white">On request</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" rounded-3xl px-5 py-8 shadow-lg bg-white dark:bg-[var(--bg-color-6)]" data-aos="fade-up">
+                            <div class="">
+                                <div class=" font-semibold dark:text-white">Get Personalized Recommendation?</div>
+                                <div class="text-[12px] text-[var(--bg-color-5)] font-medium">Get your queries resolved from our expert</div>
+                                <div class="mt-4">
+                                    <form action="" class="space-y-2 flex flex-col">
+                                        <input type="text" class="border-[1px] bg-gray-50 text-[12px] font-medium outline-none rounded-xl py-3 px-4 dark:bg-transparent" name="" id="" placeholder="Full Name">
+                                        <input type="email" class="border-[1px] bg-gray-50 text-[12px] font-medium outline-none rounded-xl py-3 px-4 dark:bg-transparent" name="" id="" placeholder="Email">
+                                        <input type="text" class="border-[1px] bg-gray-50 text-[12px] font-medium outline-none rounded-xl py-3 px-4 dark:bg-transparent" name="" id="" placeholder="Phone Number">
+                                        <button type="submit" class="px-8 py-2 !mt-4 rounded-full bg-[var(--bg-color-1)] text-[12px] text-white w-fit">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+
+        <section class="bg-[var(--bg-color-2)] px-4 lg:px-20 py-10 mt-12">
+            <div class="flex flex-col lg:flex-row *:*:space-y-3 space-y-5 justify-between *:w-full lg:*:w-1/5 border-b py-5">
+                <div class="space-y-5 lg:space-y-10">
+                    <div class="text-sm text-[var(--bg-color-3)] font-medium">
+                        <div class="text-white font-semibold">Our Office</div>
+                        <div>Office No-302, 3rd Floor, Thacker Tower, Sector 17, Vashi, Navi Mumbai 400 703</div>
+                        <div>+91 9768162133</div>
+                        <div>info@propertymegamart.in</div>
+                    </div>
+                    <div class="text-sm text-[var(--bg-color-3)] font-medium">
+                        <div class="text-white text-sm font-semibold">New Launch in India</div>
+                        <div>New Launch in Mumbai</div>
+                        <div>Upcoming Properties in Mumbai</div>
+                        <div>New Launch in Pune</div>
+                        <div>New Launch in Delhi</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="text-sm text-[var(--bg-color-3)] font-medium">
+                        <div class="text-white font-semibold">Menu</div>
+                        <div>Home</div>
+                        <div>Post Property</div>
+                        <div>Loan Requirement</div>
+                        <div>How we work</div>
+                        <div>FAQ</div>
+                        <div>About Us</div>
+                        <div>Portfolio</div>
+                        <div>Career</div>
+                        <div>Blogs</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="text-sm text-[var(--bg-color-3)] font-medium">
+                        <div class="text-white font-semibold">Discover</div>
+                        <div>Property In Agra</div>
+                        <div>Property In Ahemedabad</div>
+                        <div>Property In Alibag</div>
+                        <div>Property In Banglore</div>
+                        <div>Property In Bhopal</div>
+                        <div>Property In Chennai</div>
+                        <div>Property In Delhi</div>
+                        <div>Property In Ghaziabad</div>
+                        <div>Property In Gurgaon</div>
+                    </div>
+                </div>
+                <div >
+                    <div class="text-sm text-[var(--bg-color-3)] font-medium">
+                        <div class="text-white font-semibold">Subscribe To Our Newsletter</div>
+                        <form action="" class="flex gap-3 flex-col">
+                            <div>
+                                <input class="bg-[var(--bg-color-3)] px-5 py-3 rounded-lg text-[var(--bg-color-5)] font-medium outline-none w-full" type="text" name="" id="" placeholder="Email address">
+                            </div>
+                            <div>
+                                
+                            </div>
+                            <div>
+                                <input class="bg-[var(--bg-color-3)] px-5 py-3 rounded-lg text-[var(--bg-color-5)] font-medium outline-none w-full" type="text" name="" id="" placeholder="Enter Captcha">
+                            </div>
+                            <div>
+                                
+                            </div>
+                            <div class="flex justify-end">
+                                <button type="submit" class="px-10 py-3 !mt-4 rounded-full bg-[var(--bg-color-1)] text-sm text-white w-fit hover:bg-orange-600 origin-left transition-all duration-300">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class=" text-sm text-white space-y-2 border-b py-5">
+                <div>Disclaimer:</div>
+                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae dolores est quisquam vero quis labore esse cupiditate ipsum. Voluptate error eligendi voluptatem cum similique. Deleniti voluptate similique, unde tempore iusto, natus nostrum sit at repudiandae et earum ex dolorum! Repudiandae neque beatae ipsam, sed quo animi assumenda cupiditate reprehenderit deserunt, eveniet fugit repellat quam rem consequatur, sequi veniam. Assumenda voluptate facilis esse delectus adipisci perferendis nobis rerum magni labore, culpa deserunt odit doloribus aut iste fugiat recusandae. Ea corporis voluptate, quo accusamus odit excepturi voluptates, dolorum cumque tenetur, totam eum? Mollitia possimus quia necessitatibus quibusdam debitis sapiente accusantium est.</div>
+            </div>
+            <div class="flex flex-col-reverse lg:flex-row items-center justify-between py-5 text-white max-lg:gap-y-10">
+                <div>Copyright 2013 propertymegamart.in</div>
+                <div>
+                    <div class="flex flex-col lg:flex-row gap-2 items-center text-white">
+                        <div>Follow Us:</div>
+                        <div class="flex gap-x-2">
+
+                            <a href="">
+                                <div class="size-12 bg-[var(--bg-color-1)] rounded-full relative">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 stroke-white" viewBox="0 0 50 50" width="50" height="50" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M 5.9199219 6 L 20.582031 27.375 L 6.2304688 44 L 9.4101562 44 L 21.986328 29.421875 L 31.986328 44 L 44 44 L 28.681641 21.669922 L 42.199219 6 L 39.029297 6 L 27.275391 19.617188 L 17.933594 6 L 5.9199219 6 z M 9.7167969 8 L 16.880859 8 L 40.203125 42 L 33.039062 42 L 9.7167969 8 z" />
+                                    </svg>
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="size-12 bg-[var(--bg-color-1)] rounded-full relative">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 stroke-white" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                    </svg>
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="size-12 bg-[var(--bg-color-1)] rounded-full relative">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 stroke-white" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                        <rect x="2" y="9" width="4" height="12"></rect>
+                                        <circle cx="4" cy="4" r="2"></circle>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+    <script>
+        d = 0;
+        function dark_theme_toggle() {
+
+            if (d == 0) {
+                d = 1;
+                document.body.classList.toggle('dark');
+            }
+            else if (d == 1) {
+                d = 0;
+                document.body.classList.toggle('dark');
+            }
+            else {
+                d = 1;
+            }
+        }
+
+        function menu_toggle() {
+            document.getElementById('menu').classList.toggle('-right-full');
+            document.getElementById('menu').classList.toggle('right-0');
+            document.getElementById('menu').classList.toggle('duration-700');
+            document.getElementById('menu').classList.toggle('animate__fadeInRight');
+            document.getElementById('menu').classList.toggle('animate__fadeOutRight');
+        }
+
+        function dropdown_menu_toggle(name) {
+            document.getElementById(name).classList.toggle('h-0');
+        }
+        function search_box_toggle() {
+            document.getElementById('search_city').classList.toggle('max-lg:-translate-y-full');
+        }
+        function filter_toggle(name) {
+            document.getElementById(name + "_dropdown").classList.toggle('hidden');
+            document.getElementById(name).classList.toggle('bg-white');
+            document.getElementById(name).classList.toggle('border-[var(--bg-color-7)]');
+            document.getElementById(name).classList.toggle('dark:border-black');
+        }
+
+        section_view = 'overview';
+        function page_section_view(name) {
+
+            document.getElementById(section_view + '_title').classList.remove('text-[var(--bg-color-1)]');
+            document.getElementById(section_view + '_title').classList.add('text-[var(--bg-color-5)]');
+            document.getElementById(section_view + '_title_underline').classList.add('hidden');
+            section_view = name;
+
+            document.getElementById(name + '_title').classList.remove('text-[var(--bg-color-5)]');
+            document.getElementById(name + '_title').classList.add('text-[var(--bg-color-1)]');
+            document.getElementById(name + '_title_underline').classList.remove('hidden');
+        }
+
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js">
+    </script>
+    <script>
+        AOS.init();
+    </script>
+
+    <script>
+
+        const wrapper = document.querySelector(".wrapper");
+        const carousel = document.querySelector(".carousel");
+        const firstCardWidth = carousel.querySelector(".cardbg").offsetWidth;
+        const arrowBtns = document.querySelectorAll(".arrow");
+        const carouselChildrens = [...carousel.children];
+
+        let isDragging = false,
+            isAutoPlay = true,
+            startX,
+            startScrollLeft,
+            timeoutId;
+
+        // Get the number of cards that can fit in the carousel at once
+        let cardPerView = Math.round(carousel.offsetWidth / firstCardWidth);
+
+        // Insert copies of the last few cards to beginning of carousel for infinite scrolling
+        carouselChildrens
+            .slice(-cardPerView)
+            .reverse()
+            .forEach((card) => {
+                carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
+            });
+
+        // Insert copies of the first few cards to end of carousel for infinite scrolling
+        carouselChildrens.slice(0, cardPerView).forEach((card) => {
+            carousel.insertAdjacentHTML("beforeend", card.outerHTML);
+        });
+
+        // Scroll the carousel at appropriate postition to hide first few duplicate cards on Firefox
+        carousel.classList.add("no-transition");
+        carousel.scrollLeft = carousel.offsetWidth;
+        carousel.classList.remove("no-transition");
+
+        // Add event listeners for the arrow buttons to scroll the carousel left and right
+        arrowBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                carousel.scrollLeft += btn.id == "left" ? -firstCardWidth : firstCardWidth;
+            });
+        });
+
+        const dragStart = (e) => {
+            isDragging = true;
+            carousel.classList.add("dragging");
+            // Records the initial cursor and scroll position of the carousel
+            startX = e.pageX;
+            startScrollLeft = carousel.scrollLeft;
+        };
+
+        const dragging = (e) => {
+            if (!isDragging) return; // if isDragging is false return from here
+            // Updates the scroll position of the carousel based on the cursor movement
+            carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
+        };
+
+        const dragStop = () => {
+            isDragging = false;
+            carousel.classList.remove("dragging");
+        };
+
+        const infiniteScroll = () => {
+            // If the carousel is at the beginning, scroll to the end
+            if (carousel.scrollLeft === 0) {
+                carousel.classList.add("no-transition");
+                carousel.scrollLeft = carousel.scrollWidth - 1 * carousel.offsetWidth;
+                carousel.classList.remove("no-transition");
+            }
+            // If the carousel is at the end, scroll to the beginning
+            else if (
+                Math.ceil(carousel.scrollLeft) ===
+                carousel.scrollWidth - carousel.offsetWidth
+            ) {
+                carousel.classList.add("no-transition");
+                carousel.scrollLeft = carousel.offsetWidth;
+                carousel.classList.remove("no-transition");
+            }
+
+            // Clear existing timeout & start autoplay if mouse is not hovering over carousel
+            clearTimeout(timeoutId);
+            if (!wrapper.matches(":hover")) autoPlay();
+        };
+
+        const autoPlay = () => {
+            if (window.innerWidth < 800 || !isAutoPlay) return; // Return if window is smaller than 800 or isAutoPlay is false
+            // Autoplay the carousel after every 2500 ms
+            timeoutId = setTimeout(() => (carousel.scrollLeft += firstCardWidth), 2500);
+        };
+        autoPlay();
+
+        carousel.addEventListener("mousedown", dragStart);
+        carousel.addEventListener("mousemove", dragging);
+        document.addEventListener("mouseup", dragStop);
+        carousel.addEventListener("scroll", infiniteScroll);
+        wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
+        wrapper.addEventListener("mouseleave", autoPlay);
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Property</title>
+    <link href="../styles/style.css" rel="stylesheet">    
+    
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
+</head>
+
+<body class="font_family_robo max-w-screen-2xl mx-auto bg-[var(--bg-color-7)]">
+    <header class="bg-white dark:bg-black sticky top-0 z-40">
+        <nav class="">
+            <div class="mx-4 lg:mx-20 flex justify-between items-center py-3 lg:py-4">
+                <a href="index.html">
+                    <div>
+                        <img src="../images/Logo_BR 1.png" alt="" class="w-44 lg:w-72">
+                    </div>
+                   </a>
+                <div class="flex justify-between items-center max-md:hidden">
+                    <div class=" px-4 py-2 cursor-pointer text-sm text-gray-500 hover:text-gray-800"><a href="index.html">Home</a></div>
+                     <div class="px-4 py-2  cursor-pointer text-sm text-gray-500 hover:text-gray-800"><a href="property_view.html">Property View</a></div>
+                     <div class="px-4 py-2  cursor-pointer text-sm text-gray-500 hover:text-gray-800"><a href="search_result.html">Search Result</a></div>
+                     <div class="px-4 py-2  cursor-pointer text-sm text-gray-500 hover:text-gray-800"><a href="search.html">Property Search</a></div>
+                 </div>
+                <div class="flex items-center gap-3 cursor-pointer">
+                    <div class="lg:hidden" onclick="search_box_toggle()">
+                        <img src="../images/svg/search2.svg " alt="">
+                    </div>
+
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" value="" class="sr-only peer" onclick="dark_theme_toggle()">
+                        <div class="group peer ring-0 bg-yellow-500   rounded-full outline-none duration-300 after:duration-300 w-16 h-8  shadow-md peer-checked:bg-[var(--bg-color-2)]  peer-focus:outline-none  after:content-[''] after:rounded-full after:absolute after:bg-gray-50 after:outline-none after:size-6 after:top-1 after:left-1 after:flex after:justify-center after:items-center peer-checked:after:translate-x-8 peer-hover:after:scale-95">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="absolute top-1/2 -translate-y-1/2 left-1  size-6 stroke-white" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="absolute  top-1/2 -translate-y-1/2 left-9 stroke-white size-5 stroke" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                        </div>
+                    </label>
+                    <div onclick="menu_toggle()" class="flex border-[1px] border-[var(--bg-color-8)] hover:border-[var(--bg-color-1)] rounded-full items-center p-3 lg:px-3 lg:py-2 gap-2 dark:bg-[var(--bg-color-5)] group/menu h-12">
+                        <div class="transition-all duration-200  group-hover/menu:-rotate-90">
+                            <svg class="group-hover/menu:hidden dark:stroke-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="3" y1="12" x2="21" y2="12"></line>
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <line x1="3" y1="18" x2="21" y2="18"></line>
+                            </svg>
+                            <svg class="hidden group-hover/menu:inline-block dark:stroke-white rotate-90" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                        </div>
+                        <div class="text-sm font-semibold max-lg:hidden dark:text-white">Menu</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="menu" class="bg-[var(--bg-color-1)] dark:bg-[var(--bg-color-2)] h-screen w-screen lg:w-2/5 fixed  -right-full top-0 z-50 transition-all duration-700 overflow-y-auto overflow-x-hidden animate__animated animate__fast animate__fadeOutRight">
+                <div class="px-4 lg:px-8 py-8">
+                    <div class="w-full flex justify-end">
+                        <button onclick="menu_toggle()" class="group cursor-pointer outline-none hover:rotate-90 duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" stroke-width="1" viewBox="0 0 24 24" class="rotate-[45deg] stroke-white fill-none group-hover:fill-white group-hover:stroke-[var(--bg-color-1)] dark:group-hover:stroke-[var(--bg-color-2)]">
+                                <path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke-width="1"></path>
+                                <path d="M8 12H16" stroke-width="1"></path>
+                                <path d="M12 16V8" stroke-width="1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="px-4 py-8 text-white text-sm">
+                        <ul>
+                            <li>
+                                <div onclick="dropdown_menu_toggle('dropdown1')" class="flex items-center w-full justify-between border-b border-white/50 py-4 cursor-pointer">
+                                    <span>Property In India</span>
+                                    <span>
+                                        <svg class="scale-125" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <ul id="dropdown1" class="pl-5 h-0 overflow-hidden transition-transform duration-500 text-[var(--bg-color-3)]">
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Property In Agra</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Property In Ahemedabad</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Property In Alibag</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Property In Banglore</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Property In Bhopal</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Property In Chennai</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Property In Delhi</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Property In Ghaziabad</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Property In Gurgaon</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                </ul>
+                            </li>
+                            <li>
+                                <div onclick="dropdown_menu_toggle('dropdown2')" class="flex items-center w-full justify-between border-b border-white/50 py-4 cursor-pointer">
+                                    <span>Explore Our Menu</span>
+                                    <span>
+                                        <svg class="scale-125" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <ul id="dropdown2" class="pl-5 h-0 overflow-hidden transition-transform duration-500 text-[var(--bg-color-3)]">
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Loan Requirement</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Post Property</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>How we works?</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Frequently Asked Questions</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>We Are Hiring</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                </ul>
+                            </li>
+                            <li>
+                                <div onclick="dropdown_menu_toggle('dropdown3')" class="flex items-center w-full justify-between border-b border-white/50 py-4 cursor-pointer">
+                                    <span>Categorized Collection</span>
+                                    <span>
+                                        <svg class="scale-125" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <ul id="dropdown3" class="pl-5 h-0 overflow-hidden transition-transform duration-500 text-[var(--bg-color-3)]">
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Property In Agra</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Property In Ahemedabad</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href="">
+                                        <li>
+                                            <div class="flex items-center w-full justify-between border-b border-white/50 py-4">
+                                                <span>Property In Alibag</span>
+                                            </div>
+                                        </li>
+                                    </a>
+                                </ul>
+                            </li>
+                            <a href="property_view.html">
+                                <li>
+                                    <div class="flex items-center w-full justify-between border-b border-white/50 py-4 cursor-pointer">
+                                        <span>Property View</span>
+                                    </div>
+                                </li>
+                            </a>
+                            <a href="search.html">
+                                <li>
+                                    <div class="flex items-center w-full justify-between border-b border-white/50 py-4 cursor-pointer">
+                                        <span>Property Search</span>
+                                    </div>
+                                </li>
+                            </a>
+                            <a href="search_result.html">
+                                <li>
+                                    <div class="flex items-center w-full justify-between border-b border-white/50 py-4 cursor-pointer">
+                                        <span>Search Result</span>
+                                    </div>
+                                </li>
+                            </a>
+                            <a href="">
+                                <li>
+                                    <div class="flex items-center w-full justify-between border-b border-white/50 py-4 cursor-pointer">
+                                        <span>Compare Properties</span>
+                                    </div>
+                                </li>
+                            </a>
+                            <a href="">
+                                <li>
+                                    <div class="flex items-center w-full justify-between border-b border-white/50 py-4 cursor-pointer">
+                                        <span>Our Blogs</span>
+                                    </div>
+                                </li>
+                            </a>
+                            <a href="">
+                                <li>
+                                    <div class="flex items-center w-full justify-between border-b border-white/50 py-4 cursor-pointer">
+                                        <span>Know About Us</span>
+                                    </div>
+                                </li>
+                            </a>
+                            <a href="">
+                                <li>
+                                    <div class="flex items-center w-full justify-between border-b border-white/50 py-4 cursor-pointer">
+                                        <span>My Portfolio</span>
+                                    </div>
+                                </li>
+                            </a>
+                            <a href="">
+                                <li>
+                                    <div class="flex items-center w-full justify-between border-b border-white/50 py-4 cursor-pointer">
+                                        <span>Post Your Property</span>
+                                    </div>
+                                </li>
+                            </a>
+                            <a href="">
+                                <li>
+                                    <div class="flex items-center w-full justify-between border-b border-white/50 py-4 cursor-pointer">
+                                        <span>Career With Us</span>
+                                    </div>
+                                </li>
+                            </a>
+
+                            <li class="flex mt-40 gap-2 items-center">
+                                <div>Follow Us:</div>
+
+                                <a href="">
+                                    <div class="size-12 bg-white rounded-full relative">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="size-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 stroke-[var(--bg-color-1)]" viewBox="0 0 50 50" width="50" height="50" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M 5.9199219 6 L 20.582031 27.375 L 6.2304688 44 L 9.4101562 44 L 21.986328 29.421875 L 31.986328 44 L 44 44 L 28.681641 21.669922 L 42.199219 6 L 39.029297 6 L 27.275391 19.617188 L 17.933594 6 L 5.9199219 6 z M 9.7167969 8 L 16.880859 8 L 40.203125 42 L 33.039062 42 L 9.7167969 8 z" />
+                                        </svg>
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <div class="size-12 bg-white rounded-full relative">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="size-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 stroke-[var(--bg-color-1)]" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                        </svg>
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <div class="size-12 bg-white rounded-full relative">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="size-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 stroke-[var(--bg-color-1)]" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                            <rect x="2" y="9" width="4" height="12"></rect>
+                                            <circle cx="4" cy="4" r="2"></circle>
+                                        </svg>
+                                    </div>
+                                </a>
+
+                            </li>
+
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="bg-[var(--bg-color-7)] dark:bg-black ">
+        <section id="search_city" class=" bg-[var(--bg-color-2)] py-3 max-lg:flex justify-center max-lg:-translate-y-full transition-all duration-300">
+            <div class="lg:mx-20">
+                <div class="bg-white dark:bg-[var(--bg-color-5)] rounded-full w-fit p-1 items-center">
+                    <form action="" class="w-full">
+                        <div class="flex gap-6 w-full *:flex *:items-center overflow-hidden">
+                            <div class="bg-[var(--bg-color-2)] rounded-full px-2 flex items-center">
+                                <select name="city_name" id="" class="bg-[var(--bg-color-2)] outline-none text-white text-[12px] font-medium pr-6">
+                                    <option value="mumbai">Mumbai</option>
+                                    <option value="delhi">Delhi</option>
+                                    <option value="agra">Agra</option>
+                                </select>
+                            </div>
+                            <div class=" flex items-center">
+                                <input type="text" name="search" class="text-[12px] lg:w-[220px] font-semibold outline-none bg-transparent dark:text-black dark:placeholder:text-black" id="" placeholder="Search location, developers or project">
+                            </div>
+                            <div>
+                                <button type="submit" class="bg-[var(--bg-color-1)] rounded-full p-1 relative hover:bg-orange-600 transition-all duration-200 origin-left">
+                                    
+                                    <img src="../images/svg/search.svg" alt="" class="scale-75">
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <div class="px-4 lg:mx-20 max-lg:max-w-screen-sm mx-auto lg:mt-6">
+
+            <section class="py-5">
+                <div class="text-xl lg:text-2xl font-bold my-4 dark:text-white">
+                    Showing "<span class="text-[var(--bg-color-1)]">2145</span>" projects in <span>mumbai</span>
+                </div>
+                <div class="flex justify-between px-5">
+
+                    <div class="flex gap-2 items-center max-lg:hidden *:*:cursor-pointer">
+                        <div class="relative">
+                            <div onclick="filter_toggle('budget')" id="budget" class="text-[12px] font-semibold flex dark:bg-black dark:text-white rounded-md py-2 px-4 gap-4 items-center border border-[var(--bg-color-7)] dark:border-black ">
+                                <div class="animate__animated animate__fadeInDown">Your Budget</div>
+                                <div class="animate__animated animate__fadeInDown">
+                                    <img src="../images/svg/arrow.svg" alt="">
+                                </div>
+                            </div>
+                            <div id="budget_dropdown" class="hidden bg-white dark:bg-black dark:border rounded-md py-2 px-4 shadow-lg absolute z-40 w-full top-10 accent-[var(--bg-color-1)] transition-all">
+                                <div class="border-b-[0.5px] py-3">
+                                    <label class="flex justify-between items-center cursor-pointer">
+                                        <div class="font-semibold text-sm text-[var(--bg-color-5)]">
+                                            0-20 L
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" name="" id="" class="bg-black cursor-pointer">
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="border-b-[0.5px] py-3">
+                                    <label class="flex justify-between items-center cursor-pointer">
+                                        <div class="font-semibold text-sm text-[var(--bg-color-5)]">
+                                            21-30 L
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" name="" id="" class="bg-black cursor-pointer">
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="border-b-[0.5px] py-3">
+                                    <label class="flex justify-between items-center cursor-pointer">
+                                        <div class="font-semibold text-sm text-[var(--bg-color-5)]">
+                                            31-40 L
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" name="" id="" class="bg-black cursor-pointer">
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="border-b-[0.5px] py-3">
+                                    <label class="flex justify-between items-center cursor-pointer">
+                                        <div class="font-semibold text-sm text-[var(--bg-color-5)]">
+                                            41-50 L
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" name="" id="" class="bg-black cursor-pointer">
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="border-b-[0.5px] py-3">
+                                    <label class="flex justify-between items-center cursor-pointer">
+                                        <div class="font-semibold text-sm text-[var(--bg-color-5)]">
+                                            50-75 L
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" name="" id="" class="bg-black cursor-pointer">
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="border-b-[0.5px] py-3">
+                                    <label class="flex justify-between items-center cursor-pointer">
+                                        <div class="font-semibold text-sm text-[var(--bg-color-5)]">
+                                            75-99 L
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" name="" id="" class="bg-black cursor-pointer">
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class=" py-3">
+                                    <label class="flex justify-between items-center cursor-pointer">
+                                        <div class="font-semibold text-sm text-[var(--bg-color-5)]">
+                                            1Cr +
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" name="" id="" class="bg-black cursor-pointer">
+                                        </div>
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="relative">
+                            <div onclick="filter_toggle('bhk')" id="bhk" class="text-[12px] font-semibold flex dark:bg-black dark:text-white rounded-md py-2 px-4 gap-4 items-center border border-[var(--bg-color-7)] dark:border-black">
+                                <div class="animate__animated animate__fadeInDown">BHK</div>
+                                <div class="animate__animated animate__fadeInDown">
+                                    <img src="../images/svg/arrow.svg" alt="">
+                                </div>
+                            </div>
+                            <div id="bhk_dropdown" class="hidden bg-white dark:bg-black dark:border rounded-md py-2 px-4 shadow-lg absolute z-40 w-full top-10 accent-[var(--bg-color-1)]">
+                                <div class="border-b-[0.5px] py-3">
+                                    <label class="flex justify-between items-center cursor-pointer">
+                                        <div class="font-semibold text-sm text-[var(--bg-color-5)]">
+                                            1 BHK
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" name="" id="" class="bg-black cursor-pointer">
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="border-b-[0.5px] py-3">
+                                    <label class="flex justify-between items-center cursor-pointer">
+                                        <div class="font-semibold text-sm text-[var(--bg-color-5)]">
+                                            2 BHK
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" name="" id="" class="bg-black cursor-pointer">
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="border-b-[0.5px] py-3">
+                                    <label class="flex justify-between items-center cursor-pointer">
+                                        <div class="font-semibold text-sm text-[var(--bg-color-5)]">
+                                            3 BHK
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" name="" id="" class="bg-black cursor-pointer">
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class=" py-3">
+                                    <label class="flex justify-between items-center cursor-pointer">
+                                        <div class="font-semibold text-sm text-[var(--bg-color-5)]">
+                                            4 BHK
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" name="" id="" class="bg-black cursor-pointer">
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative">
+                            <div onclick="filter_toggle('possession')" id="possession" class="text-[12px] font-semibold flex dark:bg-black dark:text-white rounded-md py-2 px-4 gap-4 items-center border border-[var(--bg-color-7)] dark:border-black">
+                                <div class="animate__animated animate__fadeInDown">Possession</div>
+                                <div class="animate__animated animate__fadeInDown">
+                                    <img src="../images/svg/arrow.svg" alt="">
+                                </div>
+                            </div>
+                            <div id="possession_dropdown" class="hidden bg-white dark:bg-black dark:border rounded-md py-2 px-4 shadow-lg absolute z-40 w-full top-10 accent-[var(--bg-color-1)]">
+                                <div class="border-b-[0.5px] py-3">
+                                    <label class="flex justify-between items-center cursor-pointer">
+                                        <div class="font-semibold text-sm text-[var(--bg-color-5)]">
+                                            2 Months
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" name="" id="" class="bg-black cursor-pointer">
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="border-b-[0.5px] py-3">
+                                    <label class="flex justify-between items-center cursor-pointer">
+                                        <div class="font-semibold text-sm text-[var(--bg-color-5)]">
+                                            3 Months
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" name="" id="" class="bg-black cursor-pointer">
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class=" py-3">
+                                    <label class="flex justify-between items-center cursor-pointer">
+                                        <div class="font-semibold text-sm text-[var(--bg-color-5)]">
+                                            6 Months
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" name="" id="" class="bg-black cursor-pointer">
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative">
+                            <div onclick="filter_toggle('project')" id="project" class="text-[12px] font-semibold flex dark:bg-black dark:text-white rounded-md py-2 px-4 gap-4 items-center border border-[var(--bg-color-7)] dark:border-black">
+                                <div class="animate__animated animate__fadeInDown">Project Status</div>
+                                <div class="animate__animated animate__fadeInDown">
+                                    <img src="../images/svg/arrow.svg" alt="">
+                                </div>
+                            </div>
+                            <div id="project_dropdown" class="hidden bg-white dark:bg-black dark:border rounded-md py-2 px-4 shadow-lg absolute z-40 w-full top-10 accent-[var(--bg-color-1)]">
+                                <div class="border-b-[0.5px] py-3">
+                                    <label class="flex justify-between items-center cursor-pointer">
+                                        <div class="font-semibold text-sm text-[var(--bg-color-5)]">
+                                            New Launch
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" name="" id="" class="bg-black cursor-pointer">
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class=" py-3">
+                                    <label class="flex justify-between items-center cursor-pointer">
+                                        <div class="font-semibold text-sm text-[var(--bg-color-5)]">
+                                            Old
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" name="" id="" class="bg-black cursor-pointer">
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative">
+                            <div onclick="filter_toggle('area')" id="area" class="text-[12px] font-semibold flex dark:bg-black dark:text-white rounded-md py-2 px-4 gap-4 items-center border border-[var(--bg-color-7)] dark:border-black">
+                                <div class="animate__animated animate__fadeInDown">Total Area</div>
+                                <div class="animate__animated animate__fadeInDown">
+                                    <img src="../images/svg/arrow.svg" alt="">
+                                </div>
+                            </div>
+                            <div id="area_dropdown" class="hidden bg-white dark:bg-black dark:border rounded-md py-2 px-4 shadow-lg absolute z-40 w-full top-10 accent-[var(--bg-color-1)]">
+                                <div class="border-b-[0.5px] py-3">
+                                    <label class="flex justify-between items-center cursor-pointer">
+                                        <div class="font-semibold text-sm text-[var(--bg-color-5)]">
+                                            2400
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" name="" id="" class="bg-black cursor-pointer">
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="border-b-[0.5px] py-3">
+                                    <label class="flex justify-between items-center cursor-pointer">
+                                        <div class="font-semibold text-sm text-[var(--bg-color-5)]">
+                                            3000
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" name="" id="" class="bg-black cursor-pointer">
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="border-b-[0.5px] py-3">
+                                    <label class="flex justify-between items-center cursor-pointer">
+                                        <div class="font-semibold text-sm text-[var(--bg-color-5)]">
+                                            4400
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" name="" id="" class="bg-black cursor-pointer">
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="border-b-[0.5px] py-3">
+                                    <label class="flex justify-between items-center cursor-pointer">
+                                        <div class="font-semibold text-sm text-[var(--bg-color-5)]">
+                                            5000
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" name="" id="" class="bg-black cursor-pointer">
+                                        </div>
+                                    </label>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div>
+                            <button class="bg-[var(--bg-color-1)] rounded-full text-white px-5 py-2 text-[12px] hover:bg-orange-600 transition-all duration-200 origin-left">Reset Filter</button>
+                        </div>
+                    </div>
+                    <div class="flex lg:hidden items-center ">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="stroke-[var(--bg-color-6)]" fill="none" stroke="" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="15" x2="12" y2="5"></line>
+                                <polyline points=" 12 5 16 8"></polyline>
+                                <line x1="7" y1="15" x2="7" y2="5"></line>
+                                <polyline points=" 7 15 3 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="text-sm dark:text-white">
+                            Filter
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-[var(--bg-color-5)] flex items-center border-[1.5px] border-[var(--border-color-1)] px-2 py-1 lg:px-4 rounded">
+                        <div class="flex items-center text-[12px] *:cursor-pointer">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="stroke-[var(--bg-color-6)] lg:stroke-gray-400 dark:stroke-black" fill="none" stroke="" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="15" x2="12" y2="5"></line>
+                                    <polyline points=" 12 5 16 8"></polyline>
+                                    <line x1="7" y1="15" x2="7" y2="5"></line>
+                                    <polyline points=" 7 15 3 12"></polyline>
+                                </svg>
+                            </div>
+                            <div class=" lg:text-gray-500 font-medium dark:text-black">Sort by<span class="max-lg:hidden">:</span></div>
+                            <div class="max-lg:hidden">
+                                <select name="" id="" class="outline-none pr-4 cursor-pointer bg-transparent">
+                                    <option value="">Relevence</option>
+                                    <option value="">option1</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="flex gap-3 relative">
+                    <div class="w-full lg:flex-grow space-y-3">
+                        <div class="flex w-full bg-white dark:bg-[var(--bg-color-6)] rounded-2xl lg:rounded-3xl h-fit lg:h-fit shadow-lg max-lg:p-3 overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="max-lg:hidden lg:w-1/2 overflow-hidden">
+                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                </div>
+                            </div>
+                            <div class=" w-full space-y-6 flex flex-col justify-between">
+                                <div class="flex justify-between w-full max-lg:border-b-2 dark:border-b-gray-500 max-lg:pb-4 lg:px-4 pt-4">
+                                    <div class=" lg:hidden">
+                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between w-full max-lg:px-3 lg:pl-5">
+                                        <div class="text-sm">
+                                            <div class="text-[var(--bg-color-2)] font-semibold max-lg:text-base">Heritage Solitaire</div>
+                                            <div class="text-gray-500 font-semibold max-lg:text-[12px] text-sm">Bandra, Mumbai by Heritage Group</div>
+                                            <div class="text-gray-500 font-semibold max-lg:text-[12px] text-sm lg:hidden">Posted by: <span>Alfa Group</span></div>
+
+                                        </div>
+                                        <div class="group relative">
+                                            <div class="space-y-[2px] lg:hidden">
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="flex-grow flex flex-col lg:flex-row justify-between px-4">
+                                    <div class="w-full flex max-lg:gap-6 lg:justify-between flex-wrap lg:pr-12 lg:pl-5">
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Total Area</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">2400-4400</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Bedrooms</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">1,2,3,4 BHK</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Price</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">On request</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Project Status</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">New Launch</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Possession</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">1 Month</div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="flex w-full lg:bg-[var(--bg-color-7)] px-4 lg:pr-20 items-center justify-between dark:lg:bg-[var(--bg-color-5)] lg:py-4 pb-2">
+                                    <div class="font-semibold text-sm dark:text-black max-lg:hidden pl-5">
+                                        <span class="text-[var(--bg-color-5)] dark:text-black">Posted By: </span><span>Heritage Group</span>
+                                    </div>
+                                    <div class=" w-full lg:w-fit flex items-center justify-between lg:justify-center max-lg:gap-4 gap-2 ">
+                                        <button class="px-6 py-2 rounded-full border-[1px] h-fit w-1/2 lg:w-fit text-[12px] border-[var(--bg-color-1)] text-[var(--bg-color-1)]  dark:lg:bg-white hover:bg-[var(--bg-color-1)] hover:text-white origin-left transition-all duration-300">Get Info</button>
+                                        <button class="px-4 py-2 rounded-full bg-[var(--bg-color-1)] text-[12px] text-white h-fit w-1/2 lg:w-fit hover:bg-orange-600 origin-left transition-all duration-300">Request Callback</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex w-full bg-white dark:bg-[var(--bg-color-6)] rounded-2xl lg:rounded-3xl h-fit lg:h-fit shadow-lg max-lg:p-3 overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="max-lg:hidden lg:w-1/2 overflow-hidden">
+                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                </div>
+                            </div>
+                            <div class=" w-full space-y-6 flex flex-col justify-between">
+                                <div class="flex justify-between w-full max-lg:border-b-2 dark:border-b-gray-500 max-lg:pb-4 lg:px-4 pt-4">
+                                    <div class=" lg:hidden">
+                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between w-full max-lg:px-3 lg:pl-5">
+                                        <div class="text-sm">
+                                            <div class="text-[var(--bg-color-2)] font-semibold max-lg:text-base">Heritage Solitaire</div>
+                                            <div class="text-gray-500 font-semibold max-lg:text-[12px] text-sm">Bandra, Mumbai by Heritage Group</div>
+                                            <div class="text-gray-500 font-semibold max-lg:text-[12px] text-sm lg:hidden">Posted by: <span>Alfa Group</span></div>
+
+                                        </div>
+                                        <div class="group relative">
+                                            <div class="space-y-[2px] lg:hidden">
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="flex-grow flex flex-col lg:flex-row justify-between px-4">
+                                    <div class="w-full flex max-lg:gap-6 lg:justify-between flex-wrap lg:pr-12 lg:pl-5">
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Total Area</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">2400-4400</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Bedrooms</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">1,2,3,4 BHK</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Price</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">On request</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Project Status</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">New Launch</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Possession</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">1 Month</div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="flex w-full lg:bg-[var(--bg-color-7)] px-4 lg:pr-20 items-center justify-between dark:lg:bg-[var(--bg-color-5)] lg:py-4 pb-2">
+                                    <div class="font-semibold text-sm dark:text-black max-lg:hidden pl-5">
+                                        <span class="text-[var(--bg-color-5)] dark:text-black">Posted By: </span><span>Heritage Group</span>
+                                    </div>
+                                    <div class=" w-full lg:w-fit flex items-center justify-between lg:justify-center max-lg:gap-4 gap-2 ">
+                                        <button class="px-6 py-2 rounded-full border-[1px] h-fit w-1/2 lg:w-fit text-[12px] border-[var(--bg-color-1)] text-[var(--bg-color-1)]  dark:lg:bg-white hover:bg-[var(--bg-color-1)] hover:text-white origin-left transition-all duration-300">Get Info</button>
+                                        <button class="px-4 py-2 rounded-full bg-[var(--bg-color-1)] text-[12px] text-white h-fit w-1/2 lg:w-fit hover:bg-orange-600 origin-left transition-all duration-300">Request Callback</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex w-full bg-white dark:bg-[var(--bg-color-6)] rounded-2xl lg:rounded-3xl h-fit lg:h-fit shadow-lg max-lg:p-3 overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="max-lg:hidden lg:w-1/2 overflow-hidden">
+                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                </div>
+                            </div>
+                            <div class=" w-full space-y-6 flex flex-col justify-between">
+                                <div class="flex justify-between w-full max-lg:border-b-2 dark:border-b-gray-500 max-lg:pb-4 lg:px-4 pt-4">
+                                    <div class=" lg:hidden">
+                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between w-full max-lg:px-3 lg:pl-5">
+                                        <div class="text-sm">
+                                            <div class="text-[var(--bg-color-2)] font-semibold max-lg:text-base">Heritage Solitaire</div>
+                                            <div class="text-gray-500 font-semibold max-lg:text-[12px] text-sm">Bandra, Mumbai by Heritage Group</div>
+                                            <div class="text-gray-500 font-semibold max-lg:text-[12px] text-sm lg:hidden">Posted by: <span>Alfa Group</span></div>
+
+                                        </div>
+                                        <div class="group relative">
+                                            <div class="space-y-[2px] lg:hidden">
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="flex-grow flex flex-col lg:flex-row justify-between px-4">
+                                    <div class="w-full flex max-lg:gap-6 lg:justify-between flex-wrap lg:pr-12 lg:pl-5">
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Total Area</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">2400-4400</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Bedrooms</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">1,2,3,4 BHK</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Price</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">On request</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Project Status</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">New Launch</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Possession</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">1 Month</div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="flex w-full lg:bg-[var(--bg-color-7)] px-4 lg:pr-20 items-center justify-between dark:lg:bg-[var(--bg-color-5)] lg:py-4 pb-2">
+                                    <div class="font-semibold text-sm dark:text-black max-lg:hidden pl-5">
+                                        <span class="text-[var(--bg-color-5)] dark:text-black">Posted By: </span><span>Heritage Group</span>
+                                    </div>
+                                    <div class=" w-full lg:w-fit flex items-center justify-between lg:justify-center max-lg:gap-4 gap-2 ">
+                                        <button class="px-6 py-2 rounded-full border-[1px] h-fit w-1/2 lg:w-fit text-[12px] border-[var(--bg-color-1)] text-[var(--bg-color-1)]  dark:lg:bg-white hover:bg-[var(--bg-color-1)] hover:text-white origin-left transition-all duration-300">Get Info</button>
+                                        <button class="px-4 py-2 rounded-full bg-[var(--bg-color-1)] text-[12px] text-white h-fit w-1/2 lg:w-fit hover:bg-orange-600 origin-left transition-all duration-300">Request Callback</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex w-full bg-white dark:bg-[var(--bg-color-6)] rounded-2xl lg:rounded-3xl h-fit lg:h-fit shadow-lg max-lg:p-3 overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="max-lg:hidden lg:w-1/2 overflow-hidden">
+                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                </div>
+                            </div>
+                            <div class=" w-full space-y-6 flex flex-col justify-between">
+                                <div class="flex justify-between w-full max-lg:border-b-2 dark:border-b-gray-500 max-lg:pb-4 lg:px-4 pt-4">
+                                    <div class=" lg:hidden">
+                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between w-full max-lg:px-3 lg:pl-5">
+                                        <div class="text-sm">
+                                            <div class="text-[var(--bg-color-2)] font-semibold max-lg:text-base">Heritage Solitaire</div>
+                                            <div class="text-gray-500 font-semibold max-lg:text-[12px] text-sm">Bandra, Mumbai by Heritage Group</div>
+                                            <div class="text-gray-500 font-semibold max-lg:text-[12px] text-sm lg:hidden">Posted by: <span>Alfa Group</span></div>
+
+                                        </div>
+                                        <div class="group relative">
+                                            <div class="space-y-[2px] lg:hidden">
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="flex-grow flex flex-col lg:flex-row justify-between px-4">
+                                    <div class="w-full flex max-lg:gap-6 lg:justify-between flex-wrap lg:pr-12 lg:pl-5">
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Total Area</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">2400-4400</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Bedrooms</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">1,2,3,4 BHK</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Price</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">On request</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Project Status</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">New Launch</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Possession</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">1 Month</div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="flex w-full lg:bg-[var(--bg-color-7)] px-4 lg:pr-20 items-center justify-between dark:lg:bg-[var(--bg-color-5)] lg:py-4 pb-2">
+                                    <div class="font-semibold text-sm dark:text-black max-lg:hidden pl-5">
+                                        <span class="text-[var(--bg-color-5)] dark:text-black">Posted By: </span><span>Heritage Group</span>
+                                    </div>
+                                    <div class=" w-full lg:w-fit flex items-center justify-between lg:justify-center max-lg:gap-4 gap-2 ">
+                                        <button class="px-6 py-2 rounded-full border-[1px] h-fit w-1/2 lg:w-fit text-[12px] border-[var(--bg-color-1)] text-[var(--bg-color-1)]  dark:lg:bg-white hover:bg-[var(--bg-color-1)] hover:text-white origin-left transition-all duration-300">Get Info</button>
+                                        <button class="px-4 py-2 rounded-full bg-[var(--bg-color-1)] text-[12px] text-white h-fit w-1/2 lg:w-fit hover:bg-orange-600 origin-left transition-all duration-300">Request Callback</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex w-full bg-white dark:bg-[var(--bg-color-6)] rounded-2xl lg:rounded-3xl h-fit lg:h-fit shadow-lg max-lg:p-3 overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="max-lg:hidden lg:w-1/2 overflow-hidden">
+                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                </div>
+                            </div>
+                            <div class=" w-full space-y-6 flex flex-col justify-between">
+                                <div class="flex justify-between w-full max-lg:border-b-2 dark:border-b-gray-500 max-lg:pb-4 lg:px-4 pt-4">
+                                    <div class=" lg:hidden">
+                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between w-full max-lg:px-3 lg:pl-5">
+                                        <div class="text-sm">
+                                            <div class="text-[var(--bg-color-2)] font-semibold max-lg:text-base">Heritage Solitaire</div>
+                                            <div class="text-gray-500 font-semibold max-lg:text-[12px] text-sm">Bandra, Mumbai by Heritage Group</div>
+                                            <div class="text-gray-500 font-semibold max-lg:text-[12px] text-sm lg:hidden">Posted by: <span>Alfa Group</span></div>
+
+                                        </div>
+                                        <div class="group relative">
+                                            <div class="space-y-[2px] lg:hidden">
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="flex-grow flex flex-col lg:flex-row justify-between px-4">
+                                    <div class="w-full flex max-lg:gap-6 lg:justify-between flex-wrap lg:pr-12 lg:pl-5">
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Total Area</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">2400-4400</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Bedrooms</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">1,2,3,4 BHK</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Price</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">On request</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Project Status</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">New Launch</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Possession</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">1 Month</div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="flex w-full lg:bg-[var(--bg-color-7)] px-4 lg:pr-20 items-center justify-between dark:lg:bg-[var(--bg-color-5)] lg:py-4 pb-2">
+                                    <div class="font-semibold text-sm dark:text-black max-lg:hidden pl-5">
+                                        <span class="text-[var(--bg-color-5)] dark:text-black">Posted By: </span><span>Heritage Group</span>
+                                    </div>
+                                    <div class=" w-full lg:w-fit flex items-center justify-between lg:justify-center max-lg:gap-4 gap-2 ">
+                                        <button class="px-6 py-2 rounded-full border-[1px] h-fit w-1/2 lg:w-fit text-[12px] border-[var(--bg-color-1)] text-[var(--bg-color-1)]  dark:lg:bg-white hover:bg-[var(--bg-color-1)] hover:text-white origin-left transition-all duration-300">Get Info</button>
+                                        <button class="px-4 py-2 rounded-full bg-[var(--bg-color-1)] text-[12px] text-white h-fit w-1/2 lg:w-fit hover:bg-orange-600 origin-left transition-all duration-300">Request Callback</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex w-full bg-white dark:bg-[var(--bg-color-6)] rounded-2xl lg:rounded-3xl h-fit lg:h-fit shadow-lg max-lg:p-3 overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="max-lg:hidden lg:w-1/2 overflow-hidden">
+                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                </div>
+                            </div>
+                            <div class=" w-full space-y-6 flex flex-col justify-between">
+                                <div class="flex justify-between w-full max-lg:border-b-2 dark:border-b-gray-500 max-lg:pb-4 lg:px-4 pt-4">
+                                    <div class=" lg:hidden">
+                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between w-full max-lg:px-3 lg:pl-5">
+                                        <div class="text-sm">
+                                            <div class="text-[var(--bg-color-2)] font-semibold max-lg:text-base">Heritage Solitaire</div>
+                                            <div class="text-gray-500 font-semibold max-lg:text-[12px] text-sm">Bandra, Mumbai by Heritage Group</div>
+                                            <div class="text-gray-500 font-semibold max-lg:text-[12px] text-sm lg:hidden">Posted by: <span>Alfa Group</span></div>
+
+                                        </div>
+                                        <div class="group relative">
+                                            <div class="space-y-[2px] lg:hidden">
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="flex-grow flex flex-col lg:flex-row justify-between px-4">
+                                    <div class="w-full flex max-lg:gap-6 lg:justify-between flex-wrap lg:pr-12 lg:pl-5">
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Total Area</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">2400-4400</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Bedrooms</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">1,2,3,4 BHK</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Price</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">On request</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Project Status</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">New Launch</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Possession</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">1 Month</div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="flex w-full lg:bg-[var(--bg-color-7)] px-4 lg:pr-20 items-center justify-between dark:lg:bg-[var(--bg-color-5)] lg:py-4 pb-2">
+                                    <div class="font-semibold text-sm dark:text-black max-lg:hidden pl-5">
+                                        <span class="text-[var(--bg-color-5)] dark:text-black">Posted By: </span><span>Heritage Group</span>
+                                    </div>
+                                    <div class=" w-full lg:w-fit flex items-center justify-between lg:justify-center max-lg:gap-4 gap-2 ">
+                                        <button class="px-6 py-2 rounded-full border-[1px] h-fit w-1/2 lg:w-fit text-[12px] border-[var(--bg-color-1)] text-[var(--bg-color-1)]  dark:lg:bg-white hover:bg-[var(--bg-color-1)] hover:text-white origin-left transition-all duration-300">Get Info</button>
+                                        <button class="px-4 py-2 rounded-full bg-[var(--bg-color-1)] text-[12px] text-white h-fit w-1/2 lg:w-fit hover:bg-orange-600 origin-left transition-all duration-300">Request Callback</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex w-full bg-white dark:bg-[var(--bg-color-6)] rounded-2xl lg:rounded-3xl h-fit lg:h-fit shadow-lg max-lg:p-3 overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="max-lg:hidden lg:w-1/2 overflow-hidden">
+                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                </div>
+                            </div>
+                            <div class=" w-full space-y-6 flex flex-col justify-between">
+                                <div class="flex justify-between w-full max-lg:border-b-2 dark:border-b-gray-500 max-lg:pb-4 lg:px-4 pt-4">
+                                    <div class=" lg:hidden">
+                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between w-full max-lg:px-3 lg:pl-5">
+                                        <div class="text-sm">
+                                            <div class="text-[var(--bg-color-2)] font-semibold max-lg:text-base">Heritage Solitaire</div>
+                                            <div class="text-gray-500 font-semibold max-lg:text-[12px] text-sm">Bandra, Mumbai by Heritage Group</div>
+                                            <div class="text-gray-500 font-semibold max-lg:text-[12px] text-sm lg:hidden">Posted by: <span>Alfa Group</span></div>
+
+                                        </div>
+                                        <div class="group relative">
+                                            <div class="space-y-[2px] lg:hidden">
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="flex-grow flex flex-col lg:flex-row justify-between px-4">
+                                    <div class="w-full flex max-lg:gap-6 lg:justify-between flex-wrap lg:pr-12 lg:pl-5">
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Total Area</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">2400-4400</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Bedrooms</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">1,2,3,4 BHK</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Price</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">On request</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Project Status</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">New Launch</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Possession</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">1 Month</div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="flex w-full lg:bg-[var(--bg-color-7)] px-4 lg:pr-20 items-center justify-between dark:lg:bg-[var(--bg-color-5)] lg:py-4 pb-2">
+                                    <div class="font-semibold text-sm dark:text-black max-lg:hidden pl-5">
+                                        <span class="text-[var(--bg-color-5)] dark:text-black">Posted By: </span><span>Heritage Group</span>
+                                    </div>
+                                    <div class=" w-full lg:w-fit flex items-center justify-between lg:justify-center max-lg:gap-4 gap-2 ">
+                                        <button class="px-6 py-2 rounded-full border-[1px] h-fit w-1/2 lg:w-fit text-[12px] border-[var(--bg-color-1)] text-[var(--bg-color-1)]  dark:lg:bg-white hover:bg-[var(--bg-color-1)] hover:text-white origin-left transition-all duration-300">Get Info</button>
+                                        <button class="px-4 py-2 rounded-full bg-[var(--bg-color-1)] text-[12px] text-white h-fit w-1/2 lg:w-fit hover:bg-orange-600 origin-left transition-all duration-300">Request Callback</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex w-full bg-white dark:bg-[var(--bg-color-6)] rounded-2xl lg:rounded-3xl h-fit lg:h-fit shadow-lg max-lg:p-3 overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="max-lg:hidden lg:w-1/2 overflow-hidden">
+                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                </div>
+                            </div>
+                            <div class=" w-full space-y-6 flex flex-col justify-between">
+                                <div class="flex justify-between w-full max-lg:border-b-2 dark:border-b-gray-500 max-lg:pb-4 lg:px-4 pt-4">
+                                    <div class=" lg:hidden">
+                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between w-full max-lg:px-3 lg:pl-5">
+                                        <div class="text-sm">
+                                            <div class="text-[var(--bg-color-2)] font-semibold max-lg:text-base">Heritage Solitaire</div>
+                                            <div class="text-gray-500 font-semibold max-lg:text-[12px] text-sm">Bandra, Mumbai by Heritage Group</div>
+                                            <div class="text-gray-500 font-semibold max-lg:text-[12px] text-sm lg:hidden">Posted by: <span>Alfa Group</span></div>
+
+                                        </div>
+                                        <div class="group relative">
+                                            <div class="space-y-[2px] lg:hidden">
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="flex-grow flex flex-col lg:flex-row justify-between px-4">
+                                    <div class="w-full flex max-lg:gap-6 lg:justify-between flex-wrap lg:pr-12 lg:pl-5">
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Total Area</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">2400-4400</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Bedrooms</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">1,2,3,4 BHK</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Price</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">On request</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Project Status</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">New Launch</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Possession</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">1 Month</div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="flex w-full lg:bg-[var(--bg-color-7)] px-4 lg:pr-20 items-center justify-between dark:lg:bg-[var(--bg-color-5)] lg:py-4 pb-2">
+                                    <div class="font-semibold text-sm dark:text-black max-lg:hidden pl-5">
+                                        <span class="text-[var(--bg-color-5)] dark:text-black">Posted By: </span><span>Heritage Group</span>
+                                    </div>
+                                    <div class=" w-full lg:w-fit flex items-center justify-between lg:justify-center max-lg:gap-4 gap-2 ">
+                                        <button class="px-6 py-2 rounded-full border-[1px] h-fit w-1/2 lg:w-fit text-[12px] border-[var(--bg-color-1)] text-[var(--bg-color-1)]  dark:lg:bg-white hover:bg-[var(--bg-color-1)] hover:text-white origin-left transition-all duration-300">Get Info</button>
+                                        <button class="px-4 py-2 rounded-full bg-[var(--bg-color-1)] text-[12px] text-white h-fit w-1/2 lg:w-fit hover:bg-orange-600 origin-left transition-all duration-300">Request Callback</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex w-full bg-white dark:bg-[var(--bg-color-6)] rounded-2xl lg:rounded-3xl h-fit lg:h-fit shadow-lg max-lg:p-3 overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="max-lg:hidden lg:w-1/2 overflow-hidden">
+                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                </div>
+                            </div>
+                            <div class=" w-full space-y-6 flex flex-col justify-between">
+                                <div class="flex justify-between w-full max-lg:border-b-2 dark:border-b-gray-500 max-lg:pb-4 lg:px-4 pt-4">
+                                    <div class=" lg:hidden">
+                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between w-full max-lg:px-3 lg:pl-5">
+                                        <div class="text-sm">
+                                            <div class="text-[var(--bg-color-2)] font-semibold max-lg:text-base">Heritage Solitaire</div>
+                                            <div class="text-gray-500 font-semibold max-lg:text-[12px] text-sm">Bandra, Mumbai by Heritage Group</div>
+                                            <div class="text-gray-500 font-semibold max-lg:text-[12px] text-sm lg:hidden">Posted by: <span>Alfa Group</span></div>
+
+                                        </div>
+                                        <div class="group relative">
+                                            <div class="space-y-[2px] lg:hidden">
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="flex-grow flex flex-col lg:flex-row justify-between px-4">
+                                    <div class="w-full flex max-lg:gap-6 lg:justify-between flex-wrap lg:pr-12 lg:pl-5">
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Total Area</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">2400-4400</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Bedrooms</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">1,2,3,4 BHK</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Price</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">On request</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Project Status</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">New Launch</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Possession</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">1 Month</div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="flex w-full lg:bg-[var(--bg-color-7)] px-4 lg:pr-20 items-center justify-between dark:lg:bg-[var(--bg-color-5)] lg:py-4 pb-2">
+                                    <div class="font-semibold text-sm dark:text-black max-lg:hidden pl-5">
+                                        <span class="text-[var(--bg-color-5)] dark:text-black">Posted By: </span><span>Heritage Group</span>
+                                    </div>
+                                    <div class=" w-full lg:w-fit flex items-center justify-between lg:justify-center max-lg:gap-4 gap-2 ">
+                                        <button class="px-6 py-2 rounded-full border-[1px] h-fit w-1/2 lg:w-fit text-[12px] border-[var(--bg-color-1)] text-[var(--bg-color-1)]  dark:lg:bg-white hover:bg-[var(--bg-color-1)] hover:text-white origin-left transition-all duration-300">Get Info</button>
+                                        <button class="px-4 py-2 rounded-full bg-[var(--bg-color-1)] text-[12px] text-white h-fit w-1/2 lg:w-fit hover:bg-orange-600 origin-left transition-all duration-300">Request Callback</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex w-full bg-white dark:bg-[var(--bg-color-6)] rounded-2xl lg:rounded-3xl h-fit lg:h-fit shadow-lg max-lg:p-3 overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="max-lg:hidden lg:w-1/2 overflow-hidden">
+                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                </div>
+                            </div>
+                            <div class=" w-full space-y-6 flex flex-col justify-between">
+                                <div class="flex justify-between w-full max-lg:border-b-2 dark:border-b-gray-500 max-lg:pb-4 lg:px-4 pt-4">
+                                    <div class=" lg:hidden">
+                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between w-full max-lg:px-3 lg:pl-5">
+                                        <div class="text-sm">
+                                            <div class="text-[var(--bg-color-2)] font-semibold max-lg:text-base">Heritage Solitaire</div>
+                                            <div class="text-gray-500 font-semibold max-lg:text-[12px] text-sm">Bandra, Mumbai by Heritage Group</div>
+                                            <div class="text-gray-500 font-semibold max-lg:text-[12px] text-sm lg:hidden">Posted by: <span>Alfa Group</span></div>
+
+                                        </div>
+                                        <div class="group relative">
+                                            <div class="space-y-[2px] lg:hidden">
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                                <div class="size-[3px] rounded-full bg-black dark:bg-[var(--bg-color-2)]"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="flex-grow flex flex-col lg:flex-row justify-between px-4">
+                                    <div class="w-full flex max-lg:gap-6 lg:justify-between flex-wrap lg:pr-12 lg:pl-5">
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Total Area</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">2400-4400</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Bedrooms</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">1,2,3,4 BHK</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Price</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">On request</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Project Status</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">New Launch</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[12px] text-[var(--bg-color-5)] font-semibold">Possession</div>
+                                            <div class="dark:text-white font-semibold text-[15px]">1 Month</div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="flex w-full lg:bg-[var(--bg-color-7)] px-4 lg:pr-20 items-center justify-between dark:lg:bg-[var(--bg-color-5)] lg:py-4 pb-2">
+                                    <div class="font-semibold text-sm dark:text-black max-lg:hidden pl-5">
+                                        <span class="text-[var(--bg-color-5)] dark:text-black">Posted By: </span><span>Heritage Group</span>
+                                    </div>
+                                    <div class=" w-full lg:w-fit flex items-center justify-between lg:justify-center max-lg:gap-4 gap-2 ">
+                                        <button class="px-6 py-2 rounded-full border-[1px] h-fit w-1/2 lg:w-fit text-[12px] border-[var(--bg-color-1)] text-[var(--bg-color-1)]  dark:lg:bg-white hover:bg-[var(--bg-color-1)] hover:text-white origin-left transition-all duration-300">Get Info</button>
+                                        <button class="px-4 py-2 rounded-full bg-[var(--bg-color-1)] text-[12px] text-white h-fit w-1/2 lg:w-fit hover:bg-orange-600 origin-left transition-all duration-300">Request Callback</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                      
+
+
+
+                    </div>
+                    <div class="w-1/4 h-fit max-lg:hidden bg-white dark:bg-[var(--bg-color-6)] rounded-3xl px-4 py-8 shadow-lg sticky top-24 animate__animated animate__slideInRight">
+                        <div class="">
+                            <div class=" font-semibold dark:text-white">Get Personalized Recommendation?</div>
+                            <div class="text-[12px] text-[var(--bg-color-5)] font-medium">Get your queries resolved from our expert</div>
+                            <div class="mt-4">
+                                <form action="" class="space-y-2 flex flex-col">
+                                    <input type="text" class="border-[1px] bg-gray-50 text-[12px] font-medium outline-none rounded-xl py-3 px-4 dark:bg-transparent" name="" id="" placeholder="Full Name">
+                                    <input type="email" class="border-[1px] bg-gray-50 text-[12px] font-medium outline-none rounded-xl py-3 px-4 dark:bg-transparent" name="" id="" placeholder="Email">
+                                    <input type="text" class="border-[1px] bg-gray-50 text-[12px] font-medium outline-none rounded-xl py-3 px-4 dark:bg-transparent" name="" id="" placeholder="Phone Number">
+                                    <button type="submit" class="px-8 py-2 !mt-4 rounded-full bg-[var(--bg-color-1)] text-[12px] text-white w-fit hover:bg-orange-600 origin-left transition-all duration-300">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+
+        <section class="bg-[var(--bg-color-2)] px-4 lg:px-20 py-10 mt-12">
+            <div class="flex flex-col lg:flex-row *:*:space-y-3 space-y-5 justify-between *:w-full lg:*:w-1/5 border-b py-5">
+                <div class="space-y-5 lg:space-y-10">
+                    <div class="text-sm text-[var(--bg-color-3)] font-medium">
+                        <div class="text-white font-semibold">
+                            <span>Our Office</span>
+                            <span>
+
+                            </span>
+                        </div>
+                        <div>Office No-302, 3rd Floor, Thacker Tower, Sector 17, Vashi, Navi Mumbai 400 703</div>
+                        <div>+91 9768162133</div>
+                        <div>info@propertymegamart.in</div>
+                    </div>
+                    <div class="text-sm text-[var(--bg-color-3)] font-medium">
+                        <div class="text-white text-sm font-semibold">New Launch in India</div>
+                        <div>New Launch in Mumbai</div>
+                        <div>Upcoming Properties in Mumbai</div>
+                        <div>New Launch in Pune</div>
+                        <div>New Launch in Delhi</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="text-sm text-[var(--bg-color-3)] font-medium">
+                        <div class="text-white font-semibold">Menu</div>
+                        <div>Home</div>
+                        <div>Post Property</div>
+                        <div>Loan Requirement</div>
+                        <div>How we work</div>
+                        <div>FAQ</div>
+                        <div>About Us</div>
+                        <div>Portfolio</div>
+                        <div>Career</div>
+                        <div>Blogs</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="text-sm text-[var(--bg-color-3)] font-medium">
+                        <div class="text-white font-semibold">Discover</div>
+                        <div>Property In Agra</div>
+                        <div>Property In Ahemedabad</div>
+                        <div>Property In Alibag</div>
+                        <div>Property In Banglore</div>
+                        <div>Property In Bhopal</div>
+                        <div>Property In Chennai</div>
+                        <div>Property In Delhi</div>
+                        <div>Property In Ghaziabad</div>
+                        <div>Property In Gurgaon</div>
+                    </div>
+                </div>
+                <div >
+                    <div class="text-sm text-[var(--bg-color-3)] font-medium">
+                        <div class="text-white font-semibold">Subscribe To Our Newsletter</div>
+                        <form action="" class="flex gap-3 flex-col">
+                            <div>
+                                <input class="bg-[var(--bg-color-3)] px-5 py-3 rounded-lg text-[var(--bg-color-5)] font-medium outline-none w-full" type="text" name="" id="" placeholder="Email address">
+                            </div>
+                            <div>
+                                
+                            </div>
+                            <div>
+                                <input class="bg-[var(--bg-color-3)] px-5 py-3 rounded-lg text-[var(--bg-color-5)] font-medium outline-none w-full" type="text" name="" id="" placeholder="Enter Captcha">
+                            </div>
+                            <div>
+                                
+                            </div>
+                            <div class="flex justify-end">
+                                <button type="submit" class="px-10 py-3 !mt-4 rounded-full bg-[var(--bg-color-1)] text-sm text-white w-fit hover:bg-orange-600 origin-left transition-all duration-300">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class=" text-sm text-white space-y-2 border-b py-5">
+                <div>Disclaimer:</div>
+                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae dolores est quisquam vero quis labore esse cupiditate ipsum. Voluptate error eligendi voluptatem cum similique. Deleniti voluptate similique, unde tempore iusto, natus nostrum sit at repudiandae et earum ex dolorum! Repudiandae neque beatae ipsam, sed quo animi assumenda cupiditate reprehenderit deserunt, eveniet fugit repellat quam rem consequatur, sequi veniam. Assumenda voluptate facilis esse delectus adipisci perferendis nobis rerum magni labore, culpa deserunt odit doloribus aut iste fugiat recusandae. Ea corporis voluptate, quo accusamus odit excepturi voluptates, dolorum cumque tenetur, totam eum? Mollitia possimus quia necessitatibus quibusdam debitis sapiente accusantium est.</div>
+            </div>
+            <div class="flex flex-col-reverse lg:flex-row items-center justify-between py-5 text-white max-lg:gap-y-10">
+                <div>Copyright 2013 propertymegamart.in</div>
+                <div>
+                    <div class="flex flex-col lg:flex-row gap-2 items-center text-white">
+                        <div>Follow Us:</div>
+                        <div class="flex gap-x-2">
+
+                            <a href="">
+                                <div class="size-12 bg-[var(--bg-color-1)] rounded-full relative">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 stroke-white" viewBox="0 0 50 50" width="50" height="50" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M 5.9199219 6 L 20.582031 27.375 L 6.2304688 44 L 9.4101562 44 L 21.986328 29.421875 L 31.986328 44 L 44 44 L 28.681641 21.669922 L 42.199219 6 L 39.029297 6 L 27.275391 19.617188 L 17.933594 6 L 5.9199219 6 z M 9.7167969 8 L 16.880859 8 L 40.203125 42 L 33.039062 42 L 9.7167969 8 z" />
+                                    </svg>
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="size-12 bg-[var(--bg-color-1)] rounded-full relative">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 stroke-white" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                    </svg>
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="size-12 bg-[var(--bg-color-1)] rounded-full relative">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 stroke-white" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                        <rect x="2" y="9" width="4" height="12"></rect>
+                                        <circle cx="4" cy="4" r="2"></circle>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+    <script>
+        d = 0;
+        function dark_theme_toggle() {
+
+            if (d == 0) {
+                d = 1;
+                document.body.classList.toggle('dark');
+                document.getElementById('dark_theme').classList.toggle('hidden');
+                document.getElementById('light_theme').classList.toggle('hidden');
+            }
+            else if (d == 1) {
+                d = 0;
+                document.body.classList.toggle('dark');
+                document.getElementById('dark_theme').classList.toggle('hidden');
+                document.getElementById('light_theme').classList.toggle('hidden');
+            }
+            else {
+                d = 1;
+            }
+        }
+
+        function menu_toggle() {
+            document.getElementById('menu').classList.toggle('-right-full');
+            document.getElementById('menu').classList.toggle('right-0');
+            document.getElementById('menu').classList.toggle('duration-700');
+            document.getElementById('menu').classList.toggle('animate__fadeInRight');
+            document.getElementById('menu').classList.toggle('animate__fadeOutRight');
+        }
+
+        function dropdown_menu_toggle(name) {
+            document.getElementById(name).classList.toggle('h-0');
+        }
+        function search_box_toggle() {
+            document.getElementById('search_city').classList.toggle('max-lg:-translate-y-full');
+        }
+        function filter_toggle(name) {
+            document.getElementById(name + "_dropdown").classList.toggle('hidden');
+            document.getElementById(name + "_dropdown").classList.toggle('animate__animated');
+            document.getElementById(name + "_dropdown").classList.toggle('animate__fadeInDown');            
+            document.getElementById(name).classList.toggle('bg-white');
+            document.getElementById(name).classList.toggle('border-[var(--bg-color-7)]');
+            document.getElementById(name).classList.toggle('dark:border-black');
+        }
+
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js">
+
+    </script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
