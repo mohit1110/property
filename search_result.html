@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Property</title>
-    <link href="../styles/style.css" rel="stylesheet">    
+    <link href="./styles/style.css" rel="stylesheet">    
     
-    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="./styles/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
             <div class="mx-4 lg:mx-20 flex justify-between items-center py-3 lg:py-4">
                 <a href="index.html">
                     <div>
-                        <img src="../images/Logo_BR 1.png" alt="" class="w-44 lg:w-72">
+                        <img src="./images/Logo_BR 1.png" alt="" class="w-44 lg:w-72">
                     </div>
                    </a>
                 <div class="flex justify-between items-center max-md:hidden">
@@ -34,7 +34,7 @@
                  </div>
                 <div class="flex items-center gap-3 cursor-pointer">
                     <div class="lg:hidden" onclick="search_box_toggle()">
-                        <img src="../images/svg/search2.svg " alt="">
+                        <img src="./images/svg/search2.svg " alt="">
                     </div>
 
                     <label class="relative inline-flex items-center cursor-pointer">
@@ -363,7 +363,7 @@
                             <div>
                                 <button type="submit" class="bg-[var(--bg-color-1)] rounded-full p-1 relative hover:bg-orange-600 transition-all duration-200 origin-left">
                                     
-                                    <img src="../images/svg/search.svg" alt="" class="scale-75">
+                                    <img src="./images/svg/search.svg" alt="" class="scale-75">
                                 </button>
                             </div>
                         </div>
@@ -384,7 +384,7 @@
                             <div onclick="filter_toggle('budget')" id="budget" class="text-[12px] font-semibold flex dark:bg-black dark:text-white rounded-md py-2 px-4 gap-4 items-center border border-[var(--bg-color-7)] dark:border-black ">
                                 <div class="animate__animated animate__fadeInDown">Your Budget</div>
                                 <div class="animate__animated animate__fadeInDown">
-                                    <img src="../images/svg/arrow.svg" alt="">
+                                    <img src="./images/svg/arrow.svg" alt="">
                                 </div>
                             </div>
                             <div id="budget_dropdown" class="hidden bg-white dark:bg-black dark:border rounded-md py-2 px-4 shadow-lg absolute z-40 w-full top-10 accent-[var(--bg-color-1)] transition-all">
@@ -466,7 +466,7 @@
                             <div onclick="filter_toggle('bhk')" id="bhk" class="text-[12px] font-semibold flex dark:bg-black dark:text-white rounded-md py-2 px-4 gap-4 items-center border border-[var(--bg-color-7)] dark:border-black">
                                 <div class="animate__animated animate__fadeInDown">BHK</div>
                                 <div class="animate__animated animate__fadeInDown">
-                                    <img src="../images/svg/arrow.svg" alt="">
+                                    <img src="./images/svg/arrow.svg" alt="">
                                 </div>
                             </div>
                             <div id="bhk_dropdown" class="hidden bg-white dark:bg-black dark:border rounded-md py-2 px-4 shadow-lg absolute z-40 w-full top-10 accent-[var(--bg-color-1)]">
@@ -517,7 +517,7 @@
                             <div onclick="filter_toggle('possession')" id="possession" class="text-[12px] font-semibold flex dark:bg-black dark:text-white rounded-md py-2 px-4 gap-4 items-center border border-[var(--bg-color-7)] dark:border-black">
                                 <div class="animate__animated animate__fadeInDown">Possession</div>
                                 <div class="animate__animated animate__fadeInDown">
-                                    <img src="../images/svg/arrow.svg" alt="">
+                                    <img src="./images/svg/arrow.svg" alt="">
                                 </div>
                             </div>
                             <div id="possession_dropdown" class="hidden bg-white dark:bg-black dark:border rounded-md py-2 px-4 shadow-lg absolute z-40 w-full top-10 accent-[var(--bg-color-1)]">
@@ -558,7 +558,7 @@
                             <div onclick="filter_toggle('project')" id="project" class="text-[12px] font-semibold flex dark:bg-black dark:text-white rounded-md py-2 px-4 gap-4 items-center border border-[var(--bg-color-7)] dark:border-black">
                                 <div class="animate__animated animate__fadeInDown">Project Status</div>
                                 <div class="animate__animated animate__fadeInDown">
-                                    <img src="../images/svg/arrow.svg" alt="">
+                                    <img src="./images/svg/arrow.svg" alt="">
                                 </div>
                             </div>
                             <div id="project_dropdown" class="hidden bg-white dark:bg-black dark:border rounded-md py-2 px-4 shadow-lg absolute z-40 w-full top-10 accent-[var(--bg-color-1)]">
@@ -589,7 +589,7 @@
                             <div onclick="filter_toggle('area')" id="area" class="text-[12px] font-semibold flex dark:bg-black dark:text-white rounded-md py-2 px-4 gap-4 items-center border border-[var(--bg-color-7)] dark:border-black">
                                 <div class="animate__animated animate__fadeInDown">Total Area</div>
                                 <div class="animate__animated animate__fadeInDown">
-                                    <img src="../images/svg/arrow.svg" alt="">
+                                    <img src="./images/svg/arrow.svg" alt="">
                                 </div>
                             </div>
                             <div id="area_dropdown" class="hidden bg-white dark:bg-black dark:border rounded-md py-2 px-4 shadow-lg absolute z-40 w-full top-10 accent-[var(--bg-color-1)]">
@@ -681,13 +681,13 @@
                     <div class="w-full lg:flex-grow space-y-3">
                         <div class="flex w-full bg-white dark:bg-[var(--bg-color-6)] rounded-2xl lg:rounded-3xl h-fit lg:h-fit shadow-lg max-lg:p-3 overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
                             <div class="max-lg:hidden lg:w-1/2 overflow-hidden">
-                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('./images/labdhi.png')] bg-cover bg-no-repeat">
                                 </div>
                             </div>
                             <div class=" w-full space-y-6 flex flex-col justify-between">
                                 <div class="flex justify-between w-full max-lg:border-b-2 dark:border-b-gray-500 max-lg:pb-4 lg:px-4 pt-4">
                                     <div class=" lg:hidden">
-                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('./images/labdhi.png')] bg-cover bg-no-repeat">
                                         </div>
                                     </div>
                                     <div class="flex justify-between w-full max-lg:px-3 lg:pl-5">
@@ -746,13 +746,13 @@
                         </div>
                         <div class="flex w-full bg-white dark:bg-[var(--bg-color-6)] rounded-2xl lg:rounded-3xl h-fit lg:h-fit shadow-lg max-lg:p-3 overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
                             <div class="max-lg:hidden lg:w-1/2 overflow-hidden">
-                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('./images/labdhi.png')] bg-cover bg-no-repeat">
                                 </div>
                             </div>
                             <div class=" w-full space-y-6 flex flex-col justify-between">
                                 <div class="flex justify-between w-full max-lg:border-b-2 dark:border-b-gray-500 max-lg:pb-4 lg:px-4 pt-4">
                                     <div class=" lg:hidden">
-                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('./images/labdhi.png')] bg-cover bg-no-repeat">
                                         </div>
                                     </div>
                                     <div class="flex justify-between w-full max-lg:px-3 lg:pl-5">
@@ -811,13 +811,13 @@
                         </div>
                         <div class="flex w-full bg-white dark:bg-[var(--bg-color-6)] rounded-2xl lg:rounded-3xl h-fit lg:h-fit shadow-lg max-lg:p-3 overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
                             <div class="max-lg:hidden lg:w-1/2 overflow-hidden">
-                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('./images/labdhi.png')] bg-cover bg-no-repeat">
                                 </div>
                             </div>
                             <div class=" w-full space-y-6 flex flex-col justify-between">
                                 <div class="flex justify-between w-full max-lg:border-b-2 dark:border-b-gray-500 max-lg:pb-4 lg:px-4 pt-4">
                                     <div class=" lg:hidden">
-                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('./images/labdhi.png')] bg-cover bg-no-repeat">
                                         </div>
                                     </div>
                                     <div class="flex justify-between w-full max-lg:px-3 lg:pl-5">
@@ -876,13 +876,13 @@
                         </div>
                         <div class="flex w-full bg-white dark:bg-[var(--bg-color-6)] rounded-2xl lg:rounded-3xl h-fit lg:h-fit shadow-lg max-lg:p-3 overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
                             <div class="max-lg:hidden lg:w-1/2 overflow-hidden">
-                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('./images/labdhi.png')] bg-cover bg-no-repeat">
                                 </div>
                             </div>
                             <div class=" w-full space-y-6 flex flex-col justify-between">
                                 <div class="flex justify-between w-full max-lg:border-b-2 dark:border-b-gray-500 max-lg:pb-4 lg:px-4 pt-4">
                                     <div class=" lg:hidden">
-                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('./images/labdhi.png')] bg-cover bg-no-repeat">
                                         </div>
                                     </div>
                                     <div class="flex justify-between w-full max-lg:px-3 lg:pl-5">
@@ -941,13 +941,13 @@
                         </div>
                         <div class="flex w-full bg-white dark:bg-[var(--bg-color-6)] rounded-2xl lg:rounded-3xl h-fit lg:h-fit shadow-lg max-lg:p-3 overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
                             <div class="max-lg:hidden lg:w-1/2 overflow-hidden">
-                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('./images/labdhi.png')] bg-cover bg-no-repeat">
                                 </div>
                             </div>
                             <div class=" w-full space-y-6 flex flex-col justify-between">
                                 <div class="flex justify-between w-full max-lg:border-b-2 dark:border-b-gray-500 max-lg:pb-4 lg:px-4 pt-4">
                                     <div class=" lg:hidden">
-                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('./images/labdhi.png')] bg-cover bg-no-repeat">
                                         </div>
                                     </div>
                                     <div class="flex justify-between w-full max-lg:px-3 lg:pl-5">
@@ -1006,13 +1006,13 @@
                         </div>
                         <div class="flex w-full bg-white dark:bg-[var(--bg-color-6)] rounded-2xl lg:rounded-3xl h-fit lg:h-fit shadow-lg max-lg:p-3 overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
                             <div class="max-lg:hidden lg:w-1/2 overflow-hidden">
-                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('./images/labdhi.png')] bg-cover bg-no-repeat">
                                 </div>
                             </div>
                             <div class=" w-full space-y-6 flex flex-col justify-between">
                                 <div class="flex justify-between w-full max-lg:border-b-2 dark:border-b-gray-500 max-lg:pb-4 lg:px-4 pt-4">
                                     <div class=" lg:hidden">
-                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('./images/labdhi.png')] bg-cover bg-no-repeat">
                                         </div>
                                     </div>
                                     <div class="flex justify-between w-full max-lg:px-3 lg:pl-5">
@@ -1071,13 +1071,13 @@
                         </div>
                         <div class="flex w-full bg-white dark:bg-[var(--bg-color-6)] rounded-2xl lg:rounded-3xl h-fit lg:h-fit shadow-lg max-lg:p-3 overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
                             <div class="max-lg:hidden lg:w-1/2 overflow-hidden">
-                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('./images/labdhi.png')] bg-cover bg-no-repeat">
                                 </div>
                             </div>
                             <div class=" w-full space-y-6 flex flex-col justify-between">
                                 <div class="flex justify-between w-full max-lg:border-b-2 dark:border-b-gray-500 max-lg:pb-4 lg:px-4 pt-4">
                                     <div class=" lg:hidden">
-                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('./images/labdhi.png')] bg-cover bg-no-repeat">
                                         </div>
                                     </div>
                                     <div class="flex justify-between w-full max-lg:px-3 lg:pl-5">
@@ -1136,13 +1136,13 @@
                         </div>
                         <div class="flex w-full bg-white dark:bg-[var(--bg-color-6)] rounded-2xl lg:rounded-3xl h-fit lg:h-fit shadow-lg max-lg:p-3 overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
                             <div class="max-lg:hidden lg:w-1/2 overflow-hidden">
-                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('./images/labdhi.png')] bg-cover bg-no-repeat">
                                 </div>
                             </div>
                             <div class=" w-full space-y-6 flex flex-col justify-between">
                                 <div class="flex justify-between w-full max-lg:border-b-2 dark:border-b-gray-500 max-lg:pb-4 lg:px-4 pt-4">
                                     <div class=" lg:hidden">
-                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('./images/labdhi.png')] bg-cover bg-no-repeat">
                                         </div>
                                     </div>
                                     <div class="flex justify-between w-full max-lg:px-3 lg:pl-5">
@@ -1201,13 +1201,13 @@
                         </div>
                         <div class="flex w-full bg-white dark:bg-[var(--bg-color-6)] rounded-2xl lg:rounded-3xl h-fit lg:h-fit shadow-lg max-lg:p-3 overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
                             <div class="max-lg:hidden lg:w-1/2 overflow-hidden">
-                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('./images/labdhi.png')] bg-cover bg-no-repeat">
                                 </div>
                             </div>
                             <div class=" w-full space-y-6 flex flex-col justify-between">
                                 <div class="flex justify-between w-full max-lg:border-b-2 dark:border-b-gray-500 max-lg:pb-4 lg:px-4 pt-4">
                                     <div class=" lg:hidden">
-                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('./images/labdhi.png')] bg-cover bg-no-repeat">
                                         </div>
                                     </div>
                                     <div class="flex justify-between w-full max-lg:px-3 lg:pl-5">
@@ -1266,13 +1266,13 @@
                         </div>
                         <div class="flex w-full bg-white dark:bg-[var(--bg-color-6)] rounded-2xl lg:rounded-3xl h-fit lg:h-fit shadow-lg max-lg:p-3 overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
                             <div class="max-lg:hidden lg:w-1/2 overflow-hidden">
-                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                <div class="w-20 h-16 lg:w-[120%] lg:h-full rounded-md  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('./images/labdhi.png')] bg-cover bg-no-repeat">
                                 </div>
                             </div>
                             <div class=" w-full space-y-6 flex flex-col justify-between">
                                 <div class="flex justify-between w-full max-lg:border-b-2 dark:border-b-gray-500 max-lg:pb-4 lg:px-4 pt-4">
                                     <div class=" lg:hidden">
-                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('../images/labdhi.png')] bg-cover bg-no-repeat">
+                                        <div class="w-20 h-16 lg:w-full lg:h-full rounded-lg  lg:rounded-3xl lg:rounded-br-none lg:rounded-tr-none overflow-hidden bg-[url('./images/labdhi.png')] bg-cover bg-no-repeat">
                                         </div>
                                     </div>
                                     <div class="flex justify-between w-full max-lg:px-3 lg:pl-5">
