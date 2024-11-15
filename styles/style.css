@@ -1336,7 +1336,7 @@ video {
 }
 
 .bg-\[url\(\'\.\.\/images\/labdhi\.png\'\)\] {
-  background-image: url('../images/labdhi.png');
+  background-image: url('./images/labdhi.png');
 }
 
 .bg-cover {
